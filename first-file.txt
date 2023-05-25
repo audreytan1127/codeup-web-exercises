@@ -1,0 +1,15 @@
+//Working with data types, operators, and variables
+//First exercise: renting movies for the kids
+let littleMermaidDaysRented = 3;
+let brotherBearDaysRented = 5;
+let herculesDaysRented = 1;
+let priceDollarsPerDayPerMovie = 3;
+let totalPrice = priceDollarsPerDayPerMovie * (littleMermaidDaysRented + brotherBearDaysRented + herculesDaysRented)
+
+//Second exercise: total payment from working at different companies
+let googlePerHourPayDollars = 400
+let googleHoursLogged = 6
+let amazonPerHourPayDollars = 380
+let amazonHoursLogged = 4
+let facebookPerHourPayDollars = 350
+let facebookHoursLogged = 10
