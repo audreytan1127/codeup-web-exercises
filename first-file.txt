@@ -1,65 +1,55 @@
 //Working with data types, operators, and variables
 //First exercise: renting movies for the kids
-let littleMermaidDaysRented = 3;
-let brotherBearDaysRented = 5;
-let herculesDaysRented = 1;
-let priceDollarsPerDayPerMovie = 3;
-let totalPrice = priceDollarsPerDayPerMovie * (littleMermaidDaysRented + brotherBearDaysRented + herculesDaysRented)
+let littleMermaidDaysRented= 3;
+let brotherBearDaysRented= 5;
+let herculesDaysRented= 1;
+
+let priceDollarsPerDayPerMovie= 3;
+
+let totalPrice=priceDollarsPerDayPerMovie * (littleMermaidDaysRented + brotherBearDaysRented + herculesDaysRented)
+console.log("Total Price for All Movies = $" + totalPrice);
 
 //Second exercise: total payment from working at different companies
-let googlePerHourPayDollars = 400;
-let googleHoursLogged = 6;
-let amazonPerHourPayDollars = 380;
-let amazonHoursLogged = 4;
-let facebookPerHourPayDollars = 350;
-let facebookHoursLogged = 10;
+let googleHourlyPayDollars= 400;
+let googleHoursLogged= 6;
+let amazonHourlyPayDollars= 380;
+let amazonHoursLogged= 4;
+let facebookHourlyPayDollars= 350;
+let facebookHoursLogged= 10;
 
-let totalPaymentInDollars = (googlePerHourPayDollars * googleHoursLogged) + (amazonPerHourPayDollars * amazonHoursLogged) + (facebookPerHourPayDollars * facebookHoursLogged);
+let totalPaymentInDollars=(googleHourlyPayDollars * googleHoursLogged) + (amazonHourlyPayDollars * amazonHoursLogged) + (facebookHourlyPayDollars * facebookHoursLogged);
+console.log("Total Payment from All Companies in Dollars = $" + totalPaymentInDollars);
 
 //Third exercise: enrolling in a class
-let classFull = false;
-let scheduleConflict = false;
+let classFull= false;
+let scheduleConflict= false;
 
-let studentEnroll = !classFull && !scheduleConflict;
+let studentEnroll= !classFull && !scheduleConflict;
+if (studentEnroll= true) {
+console.log("Student is enrolled.")
+} else {
+console.log("Student is unable to enroll. Please check schedule.")
+}
 
 //Fourth exercise: product offers
 let productDiscountTwoOrMore = true;
 let productDiscountExpired = false;
 let premiumMemberDiscount = true;
 
-let productOfferAppliedToCart = (productDiscountTwoOrMore && !productDiscountExpired) || premiumMemberDiscount;
+let productOfferAppliedToCart = !productDiscountExpired && (productDiscountTwoOrMore || premiumMemberDiscount);
+if (productOfferAppliedToCart = true) {
+console.log("Discount has been applied to cart!")
+}
 
 //4. Username and password variables
 let username =  'codeup';
 let password = 'notastrongpassword';
 
-let passwordAtLeastFiveChar = true;
-let theUserNameInPassword = false;
-let usernameMoreThanTwentyChar = false
-let whiteSpaceBeginOrEnd = false
+let passwordAtLeastFiveChar = password.length >= 5;
+let userNameNotInPassword = !password.includes(username);
+let username20CharCap = username.length <= 20
+let usernameAndPasswordTrimmed = username.trim() === username &&
+                                  password.trim() === password;
 
-let validUserName = !usernameMoreThanTwentyChar && !whiteSpaceBeginOrEnd
-if (usernameMoreThanTwentyChar = true) {
-alert("Username is more than the allowed 20 characters. Please re-enter a valid username."
-}
-if (whiteSpaceBeginOrEnd = true) {
-password.trim()
-alert("Blank spaces are not allowed in the beginning or end of a password or username. It has been removed. Please submit again if you are OK with the changes."
-}
 
-let validPassWord = passwordAtLeastFiveChar && !theUserNameInPassword
-if (passwordAtLeastFiveChar = false) {
-alert("Password is not at least five characters. Please re-enter a valid password."
-}
-if (theUserNameInPassword = true) {
-alert("Putting your username in your password is a security threat. Please re-enter a valid password."
-}
-
-let validUserNameAndPasswordSubmission = validPassWord && validUserName
-
-//or trim the whitespace for the user? and alert user of change.
-password.trim()
-alert("Blank spaces are not allowed in the beginning or end of a password or username. It has been removed. Please submit again if you are okay with the changes."
-username.trim()
-alert("Blank spaces are not allowed in the beginning or end of a password or username. It has been removed. Please submit again if you are okay with the changes."
 
