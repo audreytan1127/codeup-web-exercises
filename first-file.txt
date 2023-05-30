@@ -7,9 +7,59 @@ let priceDollarsPerDayPerMovie = 3;
 let totalPrice = priceDollarsPerDayPerMovie * (littleMermaidDaysRented + brotherBearDaysRented + herculesDaysRented)
 
 //Second exercise: total payment from working at different companies
-let googlePerHourPayDollars = 400
-let googleHoursLogged = 6
-let amazonPerHourPayDollars = 380
-let amazonHoursLogged = 4
-let facebookPerHourPayDollars = 350
-let facebookHoursLogged = 10
+let googlePerHourPayDollars = 400;
+let googleHoursLogged = 6;
+let amazonPerHourPayDollars = 380;
+let amazonHoursLogged = 4;
+let facebookPerHourPayDollars = 350;
+let facebookHoursLogged = 10;
+
+let totalPaymentInDollars = (googlePerHourPayDollars * googleHoursLogged) + (amazonPerHourPayDollars * amazonHoursLogged) + (facebookPerHourPayDollars * facebookHoursLogged);
+
+//Third exercise: enrolling in a class
+let classFull = false;
+let scheduleConflict = false;
+
+let studentEnroll = !classFull && !scheduleConflict;
+
+//Fourth exercise: product offers
+let productDiscountTwoOrMore = true;
+let productDiscountExpired = false;
+let premiumMemberDiscount = true;
+
+let productOfferAppliedToCart = (productDiscountTwoOrMore && !productDiscountExpired) || premiumMemberDiscount;
+
+//4. Username and password variables
+let username =  'codeup';
+let password = 'notastrongpassword';
+
+let passwordAtLeastFiveChar = true;
+let theUserNameInPassword = false;
+let usernameMoreThanTwentyChar = false
+let whiteSpaceBeginOrEnd = false
+
+let validUserName = !usernameMoreThanTwentyChar && !whiteSpaceBeginOrEnd
+if (usernameMoreThanTwentyChar = true) {
+alert("Username is more than the allowed 20 characters. Please re-enter a valid username."
+}
+if (whiteSpaceBeginOrEnd = true) {
+password.trim()
+alert("Blank spaces are not allowed in the beginning or end of a password or username. It has been removed. Please submit again if you are OK with the changes."
+}
+
+let validPassWord = passwordAtLeastFiveChar && !theUserNameInPassword
+if (passwordAtLeastFiveChar = false) {
+alert("Password is not at least five characters. Please re-enter a valid password."
+}
+if (theUserNameInPassword = true) {
+alert("Putting your username in your password is a security threat. Please re-enter a valid password."
+}
+
+let validUserNameAndPasswordSubmission = validPassWord && validUserName
+
+//or trim the whitespace for the user? and alert user of change.
+password.trim()
+alert("Blank spaces are not allowed in the beginning or end of a password or username. It has been removed. Please submit again if you are okay with the changes."
+username.trim()
+alert("Blank spaces are not allowed in the beginning or end of a password or username. It has been removed. Please submit again if you are okay with the changes."
+
