@@ -37,7 +37,7 @@
  * console.
  *
  *  let myName = "Audrey"
- *  sayHello(myName);
+ *  console.log(sayHello(myName));
  *
  *
  *
@@ -46,7 +46,7 @@
 // Don't modify the following line, it generates a random number between 1 and 3
 // and stores it in a variable named random
 
-var random = Math.floor((Math.random() * 3) + 1);
+const random = Math.floor((Math.random() * 3) + 1);
 
 /**
  * TODO:
@@ -102,11 +102,11 @@ var random = Math.floor((Math.random() * 3) + 1);
  */
 /**
  const billTotalDollars = prompt("How much was the total bill in dollars?")
- const percentTip = prompt ("How much would you like to tip?")
+ const percentTip = prompt ("How much would you like to tip in whole percentages?")
  const tipAmount = calculateTip(percentTip, billTotalDollars)
-const billAndTip = (parseInt(tipAmount)+parseInt(billTotalDollars))
- alert("This is the amount you are tipping $" + tipAmount)
- alert("This is the total of the bill $" + billAndTip)
+const billAndTip = (parseFloat(tipAmount) + parseFloat(billTotalDollars))
+ alert("This is the amount you are tipping $" + tipAmount.toFixed(2)
+ alert("This is the total of the bill $" + billAndTip.toFixed(2)
 */
 
 
@@ -124,10 +124,11 @@ const billAndTip = (parseInt(tipAmount)+parseInt(billTotalDollars))
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+/*
 function applyDiscount(originalPriceDollars, discountPercent) {
-    const discountDecimal = parseInt(discountPercent) / 100;
+    const discountDecimal = parseFloat(discountPercent) / 100;
     console.log("discount as decimal => ", discountDecimal);
-    const newDiscountedTotal = parseInt(originalPriceDollars) - (discountDecimal * parseInt(originalPriceDollars))
+    const newDiscountedTotal = parseFloat(originalPriceDollars) - (discountDecimal * parseFloat(originalPriceDollars))
     console.log("new total => ", newDiscountedTotal);
     return newDiscountedTotal;
 }
@@ -135,3 +136,65 @@ let originalPriceDollars = prompt("What is the price of the item in dollars?")
 let discountPercent = prompt("What is the discount in percent form?")
 const newPriceWithDiscount = applyDiscount(originalPriceDollars, discountPercent);
 alert("This is the new price with the discount applied $" + newPriceWithDiscount)
+*/
+
+/* create isOdd function that checks if number is odd.
+function isOdd(random) {
+    if (random%2==1) {
+        return random + " is an odd number"
+    } else {
+        return random + " is not an odd number"
+    }
+}
+console.log(isOdd(random));
+ */
+
+/* create isEven function that checks if number is even.
+function isEven(random) {
+    if (random%2==0) {
+        return random + " is an even number"
+    } else {
+        return random + " is not an even number"
+    }
+}
+console.log(isEven(random));
+ */
+
+/* create identity(input) function that returns the input exactly as provided
+function identity(input) {
+    return console.log(input)
+}
+let input = "this is my input. this should look like my output."
+identity(input);
+
+ */
+
+/* create function isFive to equal 5
+function isFive(input) {
+    return "5"
+}
+let input = 5
+console.log(isFive(input));
+*/
+
+/* create function addFive to add five to some input
+function addFive(random) {
+    return parseInt(random) + parseInt(5)
+}
+console.log(addFive(random));
+*/
+
+/*
+function isMultipleOfFive(random) {
+    return random%5==0
+}
+console.log("this is a random number = " + random)
+console.log("is this number divisible by 5? " + isMultipleOfFive(random));
+
+ */
+
+function isThree(number) {
+    return number
+}
+let number = 3
+console.log(isThree(number))
