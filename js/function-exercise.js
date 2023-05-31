@@ -49,3 +49,22 @@
 //     return num / 2;
 // }
 // console.log(addFourDivideByTwo(5));
+
+//function declaration
+// function sayHello() {
+//     console.log("Hello")
+// }
+// sayHello();
+
+// //function expression
+// const sayHello = function () {
+//     console.log("Hello")
+// }
+//
+// sayHello();
+//
+// //arrow function
+// const sayHello = () => {console.log("Hello")}
+//
+// sayHello();
+
