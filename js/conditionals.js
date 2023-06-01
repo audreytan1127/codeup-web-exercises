@@ -375,7 +375,7 @@ if (dayOfTheWeek == 'sunday') {
 favoriteDayOfTheWeek(dayOfTheWeek);
  */
 
-/**
+
 let usersFavoriteDay = prompt("What day is your favorite day of the week?");
 function favoriteDayOfTheWeekSwitch(usersFavoriteDay) {
     switch(usersFavoriteDay) {
@@ -398,7 +398,7 @@ function favoriteDayOfTheWeekSwitch(usersFavoriteDay) {
     }
 }
 alert(favoriteDayOfTheWeekSwitch(usersFavoriteDay));
-*/
+
 
 /*
     Bonus 2
