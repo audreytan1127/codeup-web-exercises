@@ -3,7 +3,7 @@
 /* ########################################################################## */
 
 /**
- * TODO:
+ *
  * Create a function named `analyzeColor` that accepts a string that is a color
  * name as input. This function should return a message which relates to the
  * color stated in the argument of the function. For colors you do not have
@@ -58,7 +58,7 @@ console.log(analyzeColor('brown'));
 
 
 /**
- * TODO:
+ *
  * Pass the `randomColor` variable to your 'analyzeColor' function and console.log the results.
  * You should see a different message every time you refresh the page
  */
@@ -91,7 +91,7 @@ console.log(analyzeColor(randomColor));
 */
 
 /**
- * TODO:
+ *
  * Comment out the code above, and refactor your function to use a switch-case statement
  */
 
@@ -127,7 +127,7 @@ console.log(analyzeColor('red'));
 */
 
 /**
- * TODO:
+ *
  * Prompt the user for a color when the page loads, and pass the input from the
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
@@ -164,7 +164,7 @@ analyzeColor(userColor);
 /* ########################################################################## */
 
 /**
- * TODO:
+ *
  * Suppose there's a promotion in Walmart, each customer is given a randomly
  * generated "lucky number" between 0 and 5. If your lucky number is 0 you have
  * no discount, if your lucky number is 1 you'll get a 10% discount, if it's 2,
@@ -182,6 +182,7 @@ analyzeColor(userColor);
  * Test your function by passing it various values and checking for the expected
  * return value.
  */
+
 /** calculateTotal as a switch and case
 function calculateTotal(luckyNumber, totalAmount) {
     switch(luckyNumber) {
@@ -257,7 +258,7 @@ calculateTotal(luckyNumber, totalPrice);
 
 
 /**
- * TODO:
+ *
  * Uncomment the line below to generate a random number between 0 and 5.
  * (In this line of code, 0 is inclusive, and 6 is exclusive)
  * Prompt the user for their total bill, then use your `calculateTotal` function
@@ -301,7 +302,7 @@ calculateTotal(luckyNumber, totalPrice);
 */
 
 /**
- * TODO:
+ *
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
  * would like to enter a number. If they click 'Ok', prompt the user for a
  * number, then use 3 separate alerts to tell the user:
@@ -375,7 +376,7 @@ if (dayOfTheWeek == 'sunday') {
 favoriteDayOfTheWeek(dayOfTheWeek);
  */
 
-
+/**
 let usersFavoriteDay = prompt("What day is your favorite day of the week?");
 function favoriteDayOfTheWeekSwitch(usersFavoriteDay) {
     switch(usersFavoriteDay) {
@@ -394,18 +395,35 @@ function favoriteDayOfTheWeekSwitch(usersFavoriteDay) {
         case 'saturday':
             return "I also very much enjoy saturdays :D";
         default:
-            "Aw man, I didn't catch that! Refresh and enter a valid day of the week for a special message!";
+            return "Aw man, I didn't catch that! Refresh and enter a valid day of the week for a special message!";
     }
 }
 alert(favoriteDayOfTheWeekSwitch(usersFavoriteDay));
-
+*/
 
 /*
     Bonus 2
 Create a function that prompts the user for an input and then alerts if the input is a number or not a number.
 - use an if/else
     - refactor to use a ternary operator
+*/
 
+/** if/else string or number
+let userInput = prompt("Type somethin in!");
+
+function isANumberOrNot(userInput) {
+    if(isNaN(userInput)=== true) {
+        return "You just typed in a string!"
+    } else {
+        return "You typed in a number!"
+    }
+}
+alert(isANumberOrNot(userInput));
+*/
+
+
+
+/**
 Bonus 3
 Create a function that prompts a user for a season (Spring, Summer, Fall (or Autumn), Winter). The function then alerts the months available in that season and then asks the user to pick a given month. After selecting the month, alert a unique message for the month.
 - account for any invalid user input
