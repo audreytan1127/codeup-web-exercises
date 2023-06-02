@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Warm Ups</title>
+</head>
+<body>
+
+<script>
+  "use strict";
+
+
+
+   /** Write a function, addTen, that takes in an input. If the input is a number,
+    return the input plus ten and false otherwise.
+
+    Examples:
+*/
+
+//testing the (function(userInput), expected outcome);
+  console.log(addTen(0), 10); // returns 10
+  console.log(addTen(10), 20);// returns 20
+  console.log(addTen('bob'), false); // returns false
+
+  function addTen(userInput) {
+    if (typeof userInput === 'number') {
+   return userInput + 10;
+    } else {
+      return false;
+    }
+  }
+
+
+
+
+</script>
+
+</body>
+</html>
