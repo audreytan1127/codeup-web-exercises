@@ -16,13 +16,12 @@
 // doubleInput(2);
 
 // Do while loop
-// This is how you get a random number between 50 and 100
 
 // function sellMyCones(){
 //     let allCones = Math.floor(Math.random() * 50) + 50;
 //     console.log(`I have ${allCones} at the start of my day`);
 //     do{
-//         const customerCones =Math.floor(Math.random() * 5) + 1;
+//         const customerCones = Math.floor(Math.random() * 5) + 1;
 //         if(allCones - customerCones < 0) {
 //             console.log(`I can't sell ${customerCones} cones, I only have ${allCones}`);
 //             continue;
@@ -38,5 +37,5 @@
 // }
 // sellMyCones();
 
-// This expression will generate a random number between 1 and 5
+
 
