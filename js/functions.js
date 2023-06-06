@@ -192,9 +192,10 @@ console.log("this is a random number = " + random)
 console.log("is this number divisible by 5? " + isMultipleOfFive(random));
 
  */
+//
+// function isThree(number) {
+//     return number
+// }
+// let number = 3
+// console.log(isThree(number))
 
-function isThree(number) {
-    return number
-}
-let number = 3
-console.log(isThree(number))
