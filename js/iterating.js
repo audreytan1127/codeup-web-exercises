@@ -6,13 +6,13 @@ console.log("the iterating js file is connected!");
      * Create an array of 4 people's names and store it in a variable called
      * 'names'.
      */
-const names = ["audrey", "bekah", "emily", "mary"];
+// const names = ["audrey", "bekah", "emily", "mary"];
     /**
      * TODO:
      * Create a log statement that will log the number of elements in the names
      * array.
      */
-console.log([names.length - 1]);
+// console.log([names.length - 1]);
 
     /**
      * TODO:
@@ -33,11 +33,17 @@ console.log([names.length - 1]);
 // for (let i = 0; i < names.length; i++) {
 //     console.log(names[i]);
 // }
+
     /**
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
+    //using arrow function in for each
+// names.forEach(() => {
+//     console.log(name);
+// });
 
+//audrey's solution
     // names.forEach(function(name, index, originalArr) {
     //     console.log(originalArr);
     //     console.log(`${name} has an index of ${index}.`);
@@ -60,16 +66,18 @@ console.log([names.length - 1]);
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
-// function first() {
-//     console.log(names[0]);
+
+// function first(arr) {
+//     console.log(arr[0]);
 //     }
-// first();
-// function second() {
-//     console.log(names[1]);
-// }
-// second();
 //
-// function last() {
-//     console.log(names[3]);
+// function second(arr) {
+//     console.log(arr[1]);
 // }
-// last();
+// function last(arr) {
+//
+//     console.log(arr[3]);
+// }
+// first([1, 2, 3, 4, 5]);
+// second([1, 2, 3, 4, 5]);
+// last([1, 2, 3, 4, 5]);
