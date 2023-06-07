@@ -499,27 +499,164 @@ Potentially, you will need a large switch case to account for the possible unit 
 //     }
 // }
 //
-// console.log(isOdd(5));
-// console.log(isOdd(2));
-// console.log(isOdd(19038));
-// console.log(isOdd(4903921));
+// console.log(isOdd(5), "odd");
+// console.log(isOdd(2), "even");
+// console.log(isOdd(19038), "even");
+// console.log(isOdd(4903921), "odd");
 
 
 // Make a function named isEven(number)
+// function isEven(number) {
+//     if(number % 2 === 0) {
+//     return `${number} is an even number!`
+//     } else {
+//         return `${number} is an odd number!`
+//     }
+// }
+//
+// console.log(isEven(2), "even");
+// console.log(isEven(5), "odd");
+// console.log(isEven(-14), "even");
+// console.log(isEven(7555), "odd");
 
 // Make a function named identity(input) that returns the input exactly as provided.
+// function identity(input) {
+//     return input;
+// }
+//
+// console.log(identity("hello"));;
+// console.log(identity(5));
+// console.log(identity("15"));
+
 //     Make a function named isFive(input)
+// function isFive(input) {
+//     return input;
+// }
+// console.log(isFive(5), 5);
+// console.log(isFive(23), 5);
+
 // Make a function named addFive(input) that adds five to some input.
-//     Make a function named isMultipleOfFive(input)
+// function addFive(input) {
+//     return input + 5
+// }
+//
+// console.log(addFive(1), 6);
+// console.log(addFive(8), 13);
+// console.log(addFive(84032), 84037);
+
+// Make a function named isMultipleOfFive(input)
+// function isMultipleOfFive(input) {
+//     if (input % 5 === 0) {
+//         return `${input} is a multiple of five!`;
+//     } else {
+//         return `${input} is not a multiple of five`;
+//     }
+// }
+//
+// console.log(isMultipleOfFive(5), 'is multiple');
+// console.log(isMultipleOfFive(14), 'is not multiple');
+// console.log(isMultipleOfFive(-876250), 'is multiple of five');
+
 // Make a function named isThree(input)
+// function isThree(input) {
+//     return 3;
+// }
+//
+// console.log(isThree(3), 3);
+// console.log(isThree(5), 3);
+
 // Make a function named isMultipleOfThree(input)
+// function isMultipleOfThree(input) {
+//     if (input % 3 === 0) {
+//         return `${input} is a multiple of 3!`;
+//     } else {
+//         return `${input} is not a multiple of 3`;
+//     }
+// }
+//
+// console.log(isMultipleOfThree(9), 'is multiple');
+// console.log(isMultipleOfThree(80), 'is not multiple');
+// console.log(isMultipleOfThree(-333), 'is multiple');
+// console.log(isMultipleOfThree('hello'), 'is not multiple');
+
 // Make a function named isMultipleOfThreeAndFive(input)
+// function isMultipleOfThreeAndFive(input) {
+//     if (input % 3 === 0 && input % 5 === 0) {
+//         return `${input} is a multiple of both 3 and 5!`;
+//     } else {
+//         return`${input} is NOT a multiple of both 3 and 5!`;
+//     }
+// }
+//
+// console.log(isMultipleOfThreeAndFive(15), 'is multiple');
+// console.log(isMultipleOfThreeAndFive(8403), 'is NOT multiple');
+// console.log(isMultipleOfThreeAndFive(-150), 'is multiple');
+// console.log(isMultipleOfThreeAndFive('hello'), 'is NOT multiple');
+
 // Make a function named isMultipleOf(target, n) which checks if target is evenly divisible by n
+// function isMultipleOf(target, n) {
+//     if(target % n === 0) {
+//         return `${target} is evenly divisible by ${n}!`;
+//     } else {
+//         return `${target} is not evenly divisible by ${n}`;
+//     }
+// }
+//
+// console.log(isMultipleOf(100, 5), 'is divisible');
+// console.log(isMultipleOf(23, 2), 'is NOT divisble');
+// console.log(isMultipleOf(-55, 3), 'is NOT divisible');
+// console.log(isMultipleOf('hello', 3), 'is NOT divisible');
+
 // Make a function named isTrue(boolean)
+// function isTrue(boolean) {
+//     return true
+// }
+// console.log(isTrue(true));
+// console.log(isTrue(1));
+// console.log(isTrue('hello'));
+
 // Make a function named isFalse(boolean)
+// function isFalse(boolean) {
+//     return false
+// }
+// console.log(isFalse(false));
+// console.log(isFalse('hello'));
+// console.log(isFalse(3));
+
 // Make a function named isTruthy(input), remember that values other than true will behave like true
+// function isTruthy(input) {
+//     return true
+// }
+//
+// console.log(isTruthy(true));
+// console.log(isTruthy('what'));
+// console.log(isTruthy(false));
+
 // Make a function named isFalsy(input), remember that values other than false behave like false
+// function isFalsy(input) {
+//     return false
+// }
+//
+// console.log(isFalsy(false));
+// console.log(isFalsy('hi'));
+// console.log(isFalsy(2));
+// console.log(isFalsy(true));
+
 // Make a function named isVowel(letter)
+function isVowel(letter) {
+    if (letter == ['a', 'e', 'i', 'o', 'u']) {
+        return `${letter} is a vowel!`
+    } else {
+        return 'This is not a vowel!'
+    }
+}
+
+console.log(isVowel('a'));
+console.log(isVowel('l'));
+console.log(isVowel('o'));
+console.log(isVowel(7));
+console.log(isVowel('hello'));
+
 // Make a function named isConsonant(letter)
 // Make a function named isCapital(letter)
 // Make a function named isLowerCase(letter)
