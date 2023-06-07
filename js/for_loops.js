@@ -1,6 +1,6 @@
 "use strict"
 
-//Exercise 1: Print multiplication table!
+// Exercise 1: Print multiplication table!
 // function showMultiplicationTable (userNumber) {
 //     console.log(`${userNumber}`)
 //     let i = 1
