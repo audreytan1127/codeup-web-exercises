@@ -556,8 +556,8 @@ Potentially, you will need a large switch case to account for the possible unit 
 // console.log(isMultipleOfFive(5), 'is multiple');
 // console.log(isMultipleOfFive(14), 'is not multiple');
 // console.log(isMultipleOfFive(-876250), 'is multiple of five');
-
-// Make a function named isThree(input)
+//
+// // Make a function named isThree(input)
 // function isThree(input) {
 //     return 3;
 // }
@@ -643,23 +643,58 @@ Potentially, you will need a large switch case to account for the possible unit 
 // console.log(isFalsy(true));
 
 // Make a function named isVowel(letter)
-function isVowel(letter) {
-    if (letter == ['a', 'e', 'i', 'o', 'u']) {
-        return `${letter} is a vowel!`
-    } else {
-        return 'This is not a vowel!'
-    }
-}
-
-console.log(isVowel('a'));
-console.log(isVowel('l'));
-console.log(isVowel('o'));
-console.log(isVowel(7));
-console.log(isVowel('hello'));
+// const vowels =['a', 'e', 'i', 'o', 'u']
+// function isVowel(letter) {
+//     if (vowels.includes(letter)) {
+//         return `${letter} is a vowel!`
+//     } else {
+//         return 'This is not a vowel!'
+//     }
+// }
+//
+// console.log(isVowel('a'));
+// console.log(isVowel('l'));
+// console.log(isVowel('o'));
+// console.log(isVowel(7));
+// console.log(isVowel('A'));
 
 // Make a function named isConsonant(letter)
+// function isConsonant(letter) {
+//     if(!vowels.includes(letter)) {
+//         return `${letter} is a consonant!`;
+//     } else {
+//         return `${letter} is not a consonant.`;
+//     }
+// }
+//
+// console.log(isConsonant('s'));
+// console.log(isConsonant('a'));
+
+
 // Make a function named isCapital(letter)
+// function isCapital(letter) {
+//     if(/[A-Z]/.test(letter)) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+//
+// console.log(isCapital('K'));
+// console.log(isCapital('l'));
+
 // Make a function named isLowerCase(letter)
+// function isLowerCase(letter) {
+//     if(/[a-z]/.test(letter)) {
+//         return true;
+//     } else {
+//         return false;
+//     }
+// }
+//
+// console.log(isLowerCase('j'));
+// console.log(isLowerCase('A'));
+
 // Make a function named hasLowerCase(string) that returns if a string has any lower cased letter
 // Make a function named isSpace(letter) that returns if a character is a space character
 // Make a function named isZero(number)
