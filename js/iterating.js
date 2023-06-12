@@ -141,8 +141,8 @@ first([array1]);
 // Exercise 1. Write a function named secondToLast() that returns the second to last element
 function secondToLast([array1]) {
     console.log(array1.length);
-
 }
+
 // Exercise 2. Write a function named rest() that takes an an array and returns an array containing everything except the first element.
 
 // Exercise 3. Write a function named getLongestString that takes in an array of strings and returns the longest string of that array
