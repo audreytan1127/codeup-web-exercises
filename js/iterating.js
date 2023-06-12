@@ -86,7 +86,7 @@
 // Additional Array Exercises!!
 // Define a function named allIndexesOf that takes in two arguments. The first argument should be the array to search and the second argument should be the value you want to search for. If the item does not exist in the provided array, return an empty array.
 
-    Given:
+    // Given:
 // var fruits = ["apple", "banana", "orange", "apple", "pineapple"];
 //     function allIndexesOf(fruits, specificFruit) {
 //         console.log(`The fruit you are searching for is ${specificFruit}`);
@@ -128,15 +128,21 @@
 //     For example, if we call listOfDieRollsFromDieFunc(1, tetrahedron), then the function will return an array containing one value that is the result of calling the tetrahedron function.
 //
 
+// Exercise 0. Write a function named first() that returns only the first element of an array
 /**
  * JS Array Practice
  * Intermediate Array practice: array creation, iteration, and manipulation
  */
-
-// Exercise 0. Write a function named first() that returns only the first element of an array
-
+let array1 =['hello', 'hi', 'hey', 'ni hao', 'konichiwa'];
+function first([array1]) {
+    console.log(array1[0]);
+}
+first([array1]);
 // Exercise 1. Write a function named secondToLast() that returns the second to last element
+function secondToLast([array1]) {
+    console.log(array1.length);
 
+}
 // Exercise 2. Write a function named rest() that takes an an array and returns an array containing everything except the first element.
 
 // Exercise 3. Write a function named getLongestString that takes in an array of strings and returns the longest string of that array
