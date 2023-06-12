@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+</head>
+<body>
+<h1>Please Log In</h1>
+<form method="POST" action="https://request-inspector.glitch.me/">
+    <input type="email" placeholder="Type in Email" name="email"><br>
+    <input type="password" placeholder="Type in Password" name="password"><br>
+    <button type="submit">Login</button>
+    <br>
+    <hr>
+    <h2>Create User Biography</h2>
+    <textarea name="user bio" placeholder="User Bio (max 300 characters)" cols="80" maxlength="300"></textarea> <br>
+    <button type="submit">Update User Bio</button>
+    <hr>
+    <fieldset>
+        <legend>
+            <h2>How did you hear about us?</h2>
+        </legend>
+        <label for="billboard">
+            <span>Billboard</span>
+            <input id="billboard" type="radio" name="heard from billboard" value="billboard">
+        </label><br>
+        <label for="Radio Advertisement">
+            <span>Radio Advertisement</span>
+            <input id="Radio Advertisement" type="radio" name="heard from radio" value="radio advertisement">
+        </label><br>
+        <label for="Internet Advertisement">
+            <span>Internet Advertisement</span>
+            <input id="Internet Advertisement" type="radio" name="heard from internet" value="internet advertisement">
+        </label><br>
+        <label for="Other">
+            <span>Other</span>
+            <input id="Other" type="radio" name="heard from other" value="other">
+        </label><br>
+        <button type="submit">Submit</button>
+    </fieldset>
+    <hr>
+    <fieldset>
+        <legend>
+            <h2>What web browser are you using?</h2>
+        </legend>
+<select name="browser selection">
+    <option value=""></option>
+    <option value ="firefox">Mozilla Firefox</option>
+    <option value ="chrome">Google Chrome</option>
+    <option value="safari">Safari</option>
+    <option value="edge">Microsoft Edge</option>
+    <option value="other">Other</option>
+</select>
+<button type="submit">Submit Form</button>
+    </fieldset>
+</form>
+
+</body>
+</html>
