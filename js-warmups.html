@@ -48,6 +48,28 @@
 //   console.log(makeUpperCase(true)); // returns false
 //   console.log(makeUpperCase(null)); // returns false
 
+  // June 09, 2023 Monday
+  function isNotANumber(input) {
+    if (typeof input === 'number' || isNaN(input) ) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  function sumIsEqual (input1, input2, input3) {
+if(isNotANumber(input1, input2, input3)) {
+  return false;
+} else if ((parseFloat(input1) + parseFloat(input2)) === input3) {
+  return false;
+} else {
+  return true;
+}
+  }
+  console.log(sumIsEqual(3, 4, 7));
+  console.log(sumIsEqual(2, 2, 6));
+  console.log(sumIsEqual(4, 50, 2));
+  console.log(sumIsEqual('5', '2', '9'));
 
 </script>
 
