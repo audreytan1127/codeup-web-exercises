@@ -1,0 +1,57 @@
+:root {
+    --primary: #65ff98;
+    --secondary: #2aad79;
+}
+
+h1.fancy-header {
+    text-align: center;
+    font-weight: 500;
+    color:var(--secondary);
+}
+hr {
+    border: 2px solid #5bc9ff;
+    border-radius: 20px;
+}
+h2 {
+    text-decoration: underline;
+    color: var(--secondary);
+    font-weight: 500;
+}
+h3 {
+    text-decoration: underline;
+    color: #2aff94;
+    font-weight: 500;
+}
+
+body {
+    background-color: #e3ffc7;
+    background-image: url(../img/nighttime-aurora.jpg);
+    background-size: cover;
+    background-position: left;
+    color: var(--primary);
+    font-family: "Raleway", sans-serif;
+}
+
+ul li {
+    list-style-type: square;
+    line-height: 2.0;
+}
+ol li {
+    line-height: 2.0;
+}
+table, th, td {
+    border: 2px solid;
+    width: 50%;
+    color: var(--secondary);
+}
+a {
+    color: #f2ff51;
+}
+a:hover {
+    color: aquamarine;
+}
+section img {
+    width: calc(50% - 10px);
+    aspect-ratio: 4/3;
+
+}
