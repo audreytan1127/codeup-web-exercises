@@ -1,4 +1,4 @@
-div.alert-info {
+.hidden-on-desktop {
     display: none;
 }
 h1.company-name {
@@ -7,28 +7,56 @@ h1.company-name {
 }
 ul.nav-elements {
     list-style-type: none;
+    display: flex;
     flex-direction: row;
     justify-content: end;
     gap: 2rem;
-    margin: 2rem 0 0 0;
 }
 img {
     max-width: 100%;
     aspect-ratio: 2/1;
-    margin: 2rem 0 2rem 0;
 }
 h2 {
     margin: 1rem 0 1rem 0;
 }
-section.main-section {
-    align-self: start;
-    max-width: 60%;
-    padding: 0 2rem 0 0;
-}
-section.sub-section {
-    align-self: end;
-    max-width: 40%;
+.column.sub-section {
+    flex: 0 0 35%;
 }
 footer.row {
     margin: 10rem 0 10rem 0;
+}
+
+@media screen and (max-width: 768px){
+
+    .container.main .row {
+        flex-direction: column;
+
+    }
+    .hidden-on-desktop  {
+        display: flex;
+        font-size: 1rem;
+        border: 5px solid lightgrey;
+        padding: 10px;
+        background-color: #5bc9ff;
+
+    }
+    .column.skip {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .container.sprinkles .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .nav-bar .nav-elements {
+        flex-direction: column;
+        align-items: center;
+
+    }
+    .nav-elements li {
+        border: 10px solid crimson;
+        padding: 5px 100px;
+        background-color: crimson;
+    }
 }
