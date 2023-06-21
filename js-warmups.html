@@ -107,6 +107,49 @@
 
   // console.log(returnUserObject('jreich', 'password123', 'jreich@email.com'));
 
+  // June 21, 2023 Wednesday
+  // Create a function, returnProduct, that takes in an array of numbers and returns the product of ALL the numbers.(Use loops)
+  //         Assume all element in the input array are valid numbers. Assume all array inputs have at least 1 number.
+  // returnProduct([1, 2, 3]) // returns 1 * 2 * 3 = 6
+  // returnProduct([3, 3, 3]) // returns 3 * 3 * 3 = 27
+  // returnProduct([4, 1, 2]) // returns 4 * 1 * 2 = 8
+  // returnProduct([4, 0, 2]) // returns 4 * 0 * 2 = 0
+  // returnProduct([5, 3, 2]) // returns 5 * 3 * 2 = 30
+
+// function returnProduct(nums) {
+//   let product= 1;
+//   for(let num of nums) {
+//     product *= num;
+//   }
+//   return product;
+// }
+
+  // function returnProduct(nums) {
+  //   let product=1;
+  //   nums.forEach((num)=> {
+  //     product *= num ;
+  //   });
+  //   return product;
+  // }
+
+  let product = 1;
+ function returnProduct(nums) {
+   for(let i = 0; i < nums.length; i+=1) {
+     product *= nums[i];
+ }
+   return product;
+  }
+
+
+  console.log(returnProduct([1, 2, 3]), "6");
+  console.log(returnProduct([3, 3, 3]), "27");
+  console.log(returnProduct([4, 1, 2]), "8");
+  console.log(returnProduct([4, 0, 2]), "0");
+  console.log(returnProduct([5, 3, 2]), "30");
+
+
+
+
 </script>
 
 </body>
