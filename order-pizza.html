@@ -21,11 +21,11 @@
                     <li><a href="#" class="menu-tab nav-link px-2 text-secondary">Menu</a></li>
                 </ul>
 
-                <form class="search-box col-3 mb-2 me-lg-auto d-flex" role="search">
+                <form class="search-box col-3 m-2 me-lg-auto d-flex" role="search">
                     <input type="search" class="search-bar form-control form-control-dark text-bg-light"
                            placeholder="Zip Code"
                            aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search stores near you!</button>
+                    <button class="btn btn-outline-success m-2 d-flex" type="submit">Search stores near you!</button>
                 </form>
 
                 <div class="sign-up text-end">
@@ -47,14 +47,14 @@
         <div class="tab-panes column">
             <h2 class="build-pizza">Build Your Own Pizza!</h2>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation"><a href="crust-1">
-                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                <li class="active" role="presentation"><a data-toggle="tab" href="#crust-1">
+                    <button class="nav-link active" id="crust-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
                             type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
                         <span><strong>1</strong></span> Size and Crust
                     </button>
                 </a>
                 </li>
-                <li class="nav-item" role="presentation"><a href="cheese-2">
+                <li class="nav-item" role="presentation"><a data-toggle="tab" href="#cheese-sauce-2">
                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
                     type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
                         <span><strong>2</strong></span> Cheese and Sauce
@@ -71,9 +71,9 @@
         </div>
     </div>
 </div>
-            <div class="crust-choice container border p-0" id="crust-1">
+            <div class="crust-choice container border p-0 tab-content" id="crust-1">
                 <div class="size-crust-alert bg-primary p-2 text-light">Choose Size and Crust</div>
-                <div class="row m-2">
+                <div class="row m-2 tab-pane active" role="tabpanel">
                     <div class="hand-toss-crust column card p-0 my-2">
                         <div class="card-header hand-toss">
                             Hand Tossed
@@ -99,11 +99,52 @@
                 </div>
                 <div class="crust-next row m-0">
                     <div class="column bg-body-secondary p-0 d-flex">
-                        <a href="cheese-2"><button class="btn btn-primary m-2" type="submit"> Next Step > </button></a>
+                        <a class="btn btn-primary btnNext m-2">Next Step ></a>
                     </div>
                 </div>
             </div>
 
+<div class="cheese-sauce container border p-0 tab-content" id="cheese-sauce-2">
+    <div class="cheese-sauce-alert bg-primary p-2 text-light" role="tabpanel">Choose Cheese and Sauce</div>
+    <div class="row m-2" >
+        <div class="cheese-dropdown column card p-0 my-2">
+            <div class="card-header cheese">
+                Cheese
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">How much?</li>
+                <div class="cheese dropdown">
+                    <button class="btn d-flex btn-secondary dropdown-toggle bg-light text-dark w-100 align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Cheese
+                    </button>
+                    <ul class="dropdown-menu w-100">
+                        <li><a class="dropdown-item active" href="#" aria-current="true">Normal</a></li>
+                        <li><a class="dropdown-item" href="#">Extra Cheese</a></li>
+                        <li><a class="dropdown-item" href="#">Less Cheese</a></li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </div>
+    <div class="row m-2">
+        <div class="thin-crust column card p-0 my-2">
+            <div class="card-header crispy-thin">
+                Crispy Thin
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"> Thin enough for optimum crispy to crunchy ratio </li>
+                <li class="list-group-item"><input type="radio" name="crust" value="thin-12in"> Medium (12")</li>
+                <li class="list-group-item"><input type="radio" name="crust" value="thin-14in"> Large (14")</li>
+            </ul>
+        </div>
+    </div>
+    <div class="crust-next row m-0">
+        <div class="column bg-body-secondary p-0 d-flex">
+            <a class="btn btn-primary btnPrevious m-2" >< Previous Step</a>
+            <a class="btn btn-primary btnNext m-2" >Next Step ></a>
+        </div>
+    </div>
+</div>
 
 
 

@@ -30,3 +30,6 @@ div.column.bg-body-secondary {
     justify-content: end;
     padding: 10px;
 }
+div.cheese button.btn-secondary {
+justify-content: space-between;
+}
