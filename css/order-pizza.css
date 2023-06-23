@@ -8,8 +8,8 @@ h2.build-pizza {
     padding: 2rem 0 0 0;
 }
 
-li span {
-    display:inline-flex;
+li button span {
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 20px;
@@ -22,3 +22,11 @@ button.btn-outline-success {
 margin: 0 0 0 5px;
 }
 
+.nav-item a {
+    text-decoration: none;
+}
+div.column.bg-body-secondary {
+    flex-direction: row;
+    justify-content: end;
+    padding: 10px;
+}

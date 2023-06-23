@@ -22,7 +22,8 @@
                 </ul>
 
                 <form class="search-box col-3 mb-2 me-lg-auto d-flex" role="search">
-                    <input type="search" class="search-bar form-control form-control-dark text-bg-light" placeholder="Zip Code"
+                    <input type="search" class="search-bar form-control form-control-dark text-bg-light"
+                           placeholder="Zip Code"
                            aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search stores near you!</button>
                 </form>
@@ -32,8 +33,8 @@
                 </div>
             </div>
         </div>
-            </div>
-        </div>
+    </div>
+    </div>
 
 </header>
 
@@ -41,55 +42,70 @@
     <h1 class="w-100 text-center bg-light bg-opacity-75 p-2">Welcome to Pizza World!</h1>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="column">
+<div class="custom-tabs container p-0">
+    <div class="tabs row">
+        <div class="tab-panes column">
             <h2 class="build-pizza">Build Your Own Pizza!</h2>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item" role="presentation">
+                <li class="nav-item" role="presentation"><a href="crust-1">
                     <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
                             type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">
                         <span><strong>1</strong></span> Size and Crust
                     </button>
+                </a>
                 </li>
-                <li class="nav-item" role="presentation">
+                <li class="nav-item" role="presentation"><a href="cheese-2">
                     <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
-                            type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
+                    type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">
                         <span><strong>2</strong></span> Cheese and Sauce
                     </button>
+                </a>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
-                            type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
+                    type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">
                         <span><strong>3</strong></span> Toppings
                     </button>
                 </li>
             </ul>
-
-            <div class="card">
-                <div class="card-header hand-toss">
-                   Hand Tossed
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Garlic Seasoned Crust with rich, buttery taste. </li>
-                    <li class="list-group-item"><input type="radio" name="crust" value="10in"> Small (10")</li>
-                    <li class="list-group-item"><input type="radio" name="crust" value="12in"> Medium (12")</li>
-                </ul>
-            </div>
-            <div class="card">
-                <div class="card-header crispy-thin">
-                   Crispy Thin
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                </ul>
-            </div>
-
         </div>
     </div>
 </div>
+            <div class="crust-choice container border p-0" id="crust-1">
+                <div class="size-crust-alert bg-primary p-2 text-light">Choose Size and Crust</div>
+                <div class="row m-2">
+                    <div class="hand-toss-crust column card p-0 my-2">
+                        <div class="card-header hand-toss">
+                            Hand Tossed
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Garlic Seasoned Crust with rich, buttery taste.</li>
+                            <li class="list-group-item"><input type="radio" name="crust" value="tossed-10in"> Small (10")</li>
+                            <li class="list-group-item"><input type="radio" name="crust" value="tossed-12in"> Medium (12")</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row m-2">
+                    <div class="thin-crust column card p-0 my-2">
+                        <div class="card-header crispy-thin">
+                            Crispy Thin
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> Thin enough for optimum crispy to crunchy ratio </li>
+                            <li class="list-group-item"><input type="radio" name="crust" value="thin-12in"> Medium (12")</li>
+                            <li class="list-group-item"><input type="radio" name="crust" value="thin-14in"> Large (14")</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="crust-next row m-0">
+                    <div class="column bg-body-secondary p-0 d-flex">
+                        <a href="cheese-2"><button class="btn btn-primary m-2" type="submit"> Next Step > </button></a>
+                    </div>
+                </div>
+            </div>
+
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
