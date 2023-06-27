@@ -154,28 +154,28 @@
 
   //         EXAMPLE...
 
-  const salesData = [
-    {
-      month: 'January',
-      totalItemsSold: 0
-    },
-    {
-      month: 'February',
-      totalItemsSold: 5
-    },
-    {
-      month: 'March',
-      totalItemsSold: 2
-    },
-    {
-      month: 'April',
-      totalItemsSold: 10
-    },
-    {
-      month: 'May',
-      totalItemsSold: 30
-    }
-  ];
+  // const salesData = [
+  //   {
+  //     month: 'January',
+  //     totalItemsSold: 0
+  //   },
+  //   {
+  //     month: 'February',
+  //     totalItemsSold: 5
+  //   },
+  //   {
+  //     month: 'March',
+  //     totalItemsSold: 2
+  //   },
+  //   {
+  //     month: 'April',
+  //     totalItemsSold: 10
+  //   },
+  //   {
+  //     month: 'May',
+  //     totalItemsSold: 30
+  //   }
+  // ];
   //Audrey's attempt with For Loop
 //   let sum = 0
 // function returnTotalSales(salesData) {
@@ -205,11 +205,57 @@
 
   // console.log(returnTotalSales(salesData)); // returns 47
 
+//june 27 2023 tuesday
+//
+//   Create a function, returnAvgSales, that takes in an array of sales data objects and returns the average of all
+//   total items sold. Assume all elements in the input array are valid sales data objects with a totalItemsSold
+//   property. If the array is empty, return 0. If the array has one element, return the value of the totalItemsSold.
+//
+//           EXAMPLE...
+//
+  const salesData = [
+    {
+      month: 'January',
+      totalItemsSold: 0
+    },
+    {
+      month: 'February',
+      totalItemsSold: 5
+    },
+    {
+      month: 'March',
+      totalItemsSold: 2
+    },
+    {
+      month: 'April',
+      totalItemsSold: 10
+    },
+    {
+      month: 'May',
+      totalItemsSold: 30
+    }
+  ];
 
+  //audrey's solution
+// let totalSales = 0
+//   function returnAvgSales(salesData) {
+//     for (let i=0; i < salesData.length; i++) {
+//   totalSales += salesData[i].totalItemsSold;
+//     }
+//     return totalSales / salesData.length;
+//   }
 
-
-
-
+// //class walk thru with for each loop
+//   function returnAvgSales(salesData) {
+//     let total = 0;
+//     salesData.forEach(salesDataObj => {
+//       total += salesDataObj.totalItemsSold;
+//     });
+//     return total / salesData.length;
+//   }
+//
+//
+//     console.log(returnAvgSales(salesData)); // returns 9.4
 
 
 
