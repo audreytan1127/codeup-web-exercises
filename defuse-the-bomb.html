@@ -9,6 +9,7 @@
 <button id="defuser">Defuse the BOM</button>
 
 <script>
+
   (function() {
     "use strict";
 
@@ -24,12 +25,14 @@
       }
       detonationTimer--;
     }
-    let detonateTime = setInterval(updateTimer, 1000);
+    // Audrey's solution // class walk thru
+    // let detonateTime = setInterval(updateTimer, 1000);
 
     // TODO: When this function runs, it needs to
     // cancel the interval/timeout for updateTimer()
     function defuseTheBOM() {
-      clearInterval(detonateTime);
+      // Audrey's solution // class walk thru
+      // clearInterval(detonateTime);
     };
 
     // Don't modify anything below this line!
