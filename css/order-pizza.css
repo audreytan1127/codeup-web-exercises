@@ -1,5 +1,8 @@
-
-
+.search-box, button.btn {
+    width: fit-content;
+    block-size: fit-content;
+    align-items: center;
+}
 .container-fluid.at-hero {
     min-height: 30vh;
     background-image: url("../img/plain-pizza.jpg");

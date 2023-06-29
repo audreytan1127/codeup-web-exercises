@@ -1,336 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>JS Warm Ups</title>
+    <meta charset="UTF-8">
+    <title>JS Warm Ups</title>
 </head>
 <body>
 
 <script>
-  "use strict";
+    "use strict";
 
-//    /** Write a function, addTen, that takes in an input. If the input is a number,
-//     return the input plus ten and false otherwise.
-//
-//     Examples:
-// */
+    //    /** Write a function, addTen, that takes in an input. If the input is a number,
+    //     return the input plus ten and false otherwise.
+    //
+    //     Examples:
+    // */
 
-// //testing the (function(userInput), expected outcome);
-//   console.log(addTen(0), 10); // returns 10
-//   console.log(addTen(10), 20);// returns 20
-//   console.log(addTen('bob'), false); // returns false
-//
-//   function addTen(userInput) {
-//     if (typeof userInput === 'number') {
-//    return userInput + 10;
-//     } else {
-//       return false;
-//     }
-//   }
-//
-//
+    // //testing the (function(userInput), expected outcome);
+    //   console.log(addTen(0), 10); // returns 10
+    //   console.log(addTen(10), 20);// returns 20
+    //   console.log(addTen('bob'), false); // returns false
+    //
+    //   function addTen(userInput) {
+    //     if (typeof userInput === 'number') {
+    //    return userInput + 10;
+    //     } else {
+    //       return false;
+    //     }
+    //   }
+    //
+    //
 
-  //june 5th, 2023. Monday
-// function makeUpperCase(input){
-//   if(typeof input === "string") {
-//     return input.toUpperCase();
-//     }else {
-//     return false
-//     }
-//   }
-//
-//   console.log(makeUpperCase('cat')); // returns 'CAT'
-//   console.log(makeUpperCase('DoG')); // returns 'DOG'
-//   console.log(makeUpperCase('CODEUP')); // returns 'CODEUP'
-//   console.log(makeUpperCase(54)); // returns false
-//   console.log(makeUpperCase(true)); // returns false
-//   console.log(makeUpperCase(null)); // returns false
+    //june 5th, 2023. Monday
+    // function makeUpperCase(input){
+    //   if(typeof input === "string") {
+    //     return input.toUpperCase();
+    //     }else {
+    //     return false
+    //     }
+    //   }
+    //
+    //   console.log(makeUpperCase('cat')); // returns 'CAT'
+    //   console.log(makeUpperCase('DoG')); // returns 'DOG'
+    //   console.log(makeUpperCase('CODEUP')); // returns 'CODEUP'
+    //   console.log(makeUpperCase(54)); // returns false
+    //   console.log(makeUpperCase(true)); // returns false
+    //   console.log(makeUpperCase(null)); // returns false
 
-  // June 09, 2023 Monday
-  //write a function, sumIsEqual, that takes in three inputs. the function should return true if the sum of the first two inputs are equal to the third input. If any of the inputs are not number, return false.
-//   function isNotANumber(input) {
-//     if (typeof input === 'number' || isNaN(input) ) {
-//       return false;
-//     } else {
-//       return true;
-//     }
-//   }
-//
-//   function sumIsEqual (input1, input2, input3) {
-// if(isNotANumber(input1, input2, input3)) {
-//   return false;
-// } else if (input1 + input2 === input3) {
-//   return false;
-// } else {
-//   return true;
-// }
-//   }
-//   console.log(sumIsEqual(3, 4, 7));
-//   console.log(sumIsEqual(2, 2, 6));
-//   console.log(sumIsEqual(4, 50, 2));
-//   console.log(sumIsEqual('5', '2', '9'));
-
-
-  // JS Warmup June 20 Tuesday
-
-  // Write a function, returnUserObject, that takes in three String arguments: a username, password, and email. The function should return a user object with username, password and email properties.
-  //
-  // returnUserObject('jreich', 'password123', 'jreich@email.com') // returns...
-  //
-  // {
-  //   username: 'jreich',
-  //           password: 'password123',
-  //         email: 'jreich@email.com'
-  // }
-  //
-  // Assume all inputs are non-empty strings. The order of the properties does not matter.
-
-  // function returnUserObject(username, password, email) {
-  //   // return {
-  //   //   username,
-  //   //   password,
-  //   //   email
-  //   // }
-  //   //
-  //   // const user = {}
-  //   // user.username = username;
-  //   // user.password = password;
-  //   // user.email = email;
-  //   // return user;
-  //
-  //  // return {
-  //  //   username: username,
-  //  //   password: password,
-  //  //   email: email
-  //  // }
-  // }
-
-  // console.log(returnUserObject('jreich', 'password123', 'jreich@email.com'));
-
-  // June 21, 2023 Wednesday
-  // Create a function, returnProduct, that takes in an array of numbers and returns the product of ALL the numbers.(Use loops)
-  //         Assume all element in the input array are valid numbers. Assume all array inputs have at least 1 number.
-  // returnProduct([1, 2, 3]) // returns 1 * 2 * 3 = 6
-  // returnProduct([3, 3, 3]) // returns 3 * 3 * 3 = 27
-  // returnProduct([4, 1, 2]) // returns 4 * 1 * 2 = 8
-  // returnProduct([4, 0, 2]) // returns 4 * 0 * 2 = 0
-  // returnProduct([5, 3, 2]) // returns 5 * 3 * 2 = 30
-
-// function returnProduct(nums) {
-//   let product= 1;
-//   for(let num of nums) {
-//     product *= num;
-//   }
-//   return product;
-// }
-
-  // function returnProduct(nums) {
-  //   let product=1;
-  //   nums.forEach((num)=> {
-  //     product *= num ;
-  //   });
-  //   return product;
-  // }
-
- //  let product = 1;
- // function returnProduct(nums) {
- //   for(let i = 0; i < nums.length; i+=1) {
- //     product *= nums[i];
- // }
- //   return product;
- //  }
- //
- //
- //  console.log(returnProduct([1, 2, 3]), "6");
- //  console.log(returnProduct([3, 3, 3]), "27");
- //  console.log(returnProduct([4, 1, 2]), "8");
- //  console.log(returnProduct([4, 0, 2]), "0");
- //  console.log(returnProduct([5, 3, 2]), "30");
-
-// June 26, 2023 Monday
-//   Create a function, returnTotalSales, that takes in an array of sales data objects and returns the sum of all
-//   totalItemsSold properties. Assume all elements in the input array are valid sales data objects with a totalItemsSold
-//   property.
-
-  //         EXAMPLE...
-
-  // const salesData = [
-  //   {
-  //     month: 'January',
-  //     totalItemsSold: 0
-  //   },
-  //   {
-  //     month: 'February',
-  //     totalItemsSold: 5
-  //   },
-  //   {
-  //     month: 'March',
-  //     totalItemsSold: 2
-  //   },
-  //   {
-  //     month: 'April',
-  //     totalItemsSold: 10
-  //   },
-  //   {
-  //     month: 'May',
-  //     totalItemsSold: 30
-  //   }
-  // ];
-  //Audrey's attempt with For Loop
-//   let sum = 0
-// function returnTotalSales(salesData) {
-//  for (let i = 0; i < salesData.length; i += 1) {
-//     sum += salesData[i].totalItemsSold;
-//   }
-//  return sum;
-//   }
-
-//Class Walk Thru (works only if you know how many elements available)
-//   function returnTotalSales(salesData) {
-//   const total = salesData[0].totalItemsSold +
-//           salesData[1].totalItemsSold +
-//     salesData[2].totalItemsSold +
-//     salesData[3].totalItemsSold +
-//     salesData[4].totalItemsSold;
-//   return total;
-//   }
-
-// For Each Loop Class Walk Thru
-// let sum = 0
-//   salesData.forEach(element => {
-//     sum += element.totalItemsSold;
-//
-//   });
-//   return sum;
-
-  // console.log(returnTotalSales(salesData)); // returns 47
-
-//june 27 2023 tuesday
-//
-//   Create a function, returnAvgSales, that takes in an array of sales data objects and returns the average of all
-//   total items sold. Assume all elements in the input array are valid sales data objects with a totalItemsSold
-//   property. If the array is empty, return 0. If the array has one element, return the value of the totalItemsSold.
-//
-//           EXAMPLE...
-//
-//   const salesData = [
-//     {
-//       month: 'January',
-//       totalItemsSold: 0
-//     },
-//     {
-//       month: 'February',
-//       totalItemsSold: 5
-//     },
-//     {
-//       month: 'March',
-//       totalItemsSold: 2
-//     },
-//     {
-//       month: 'April',
-//       totalItemsSold: 10
-//     },
-//     {
-//       month: 'May',
-//       totalItemsSold: 30
-//     }
-//   ];
-
-  //audrey's solution
-// let totalSales = 0
-//   function returnAvgSales(salesData) {
-//     for (let i=0; i < salesData.length; i++) {
-//   totalSales += salesData[i].totalItemsSold;
-//     }
-//     return totalSales / salesData.length;
-//   }
-
-// //class walk thru with for each loop
-//   function returnAvgSales(salesData) {
-//     let total = 0;
-//     salesData.forEach(salesDataObj => {
-//       total += salesDataObj.totalItemsSold;
-//     });
-//     return total / salesData.length;
-//   }
-//
-//
-//     console.log(returnAvgSales(salesData)); // returns 9.4
-
-  // June 28 wednesday JS warmup
-  // Create a function, returnAdmins, that takes in an array of user objects
-  // and returns an array of only the admin user objects. Assume the array
-  // has at least one user object and all elements have an isAdmin property.
-  //
-  // //         Example:
-  //
-  //
-  // const users = [
-  //
-  //   {
-  //     username: 'fred123',
-  //     password: 'letmein',
-  //     email: 'fred123@email.com',
-  //     isAdmin: true
-  //   },
-  //   {
-  //     username: 'cindy123',
-  //     password: 'hello123',
-  //     email: 'cindy123@email.com',
-  //     isAdmin: false
-  //   },
-  //   {
-  //     username: 'kathy123',
-  //     password: 'letmein',
-  //     email: 'kathy123@email.com',
-  //     isAdmin: true
-  //   },
-  //   {
-  //     username: 'kyle123',
-  //     password: 'letmein',
-  //     email: 'kyle123@email.com',
-  //     isAdmin: false
-  //   }
-  // ];
-  //
-  // function returnAdmins(users) {
-  //   const admins = [];
-  //   //creating empty array to push objects to
-  //   for (let i = 0; i < users.length; i += 1 ) {
-  //     if (users[i].isAdmin === true) {
-  //       admins.push(users[i]);
-  //       // this will push the users object to const admins
-  //     }
-  //           } // needs to return the objects that have been pushed
-  //   return admins;
-  // }
-  //
-  // console.log(returnAdmins(users));
-
-  /*
-
-  returnAdmins(users) returns...
-
-  [
-
-      {
-          username: 'fred123',
-          password: 'letmein',
-          email: 'fred123@email.com',
-          isAdmin: true
-      },
-      {
-          username: 'kathy123',
-          password: 'letmein',
-          email: 'kathy123@email.com',
-          isAdmin: true
-      }
-  ]
-
-  */
+    // June 09, 2023 Monday
+    //write a function, sumIsEqual, that takes in three inputs. the function should return true if the sum of the first two inputs are equal to the third input. If any of the inputs are not number, return false.
+    //   function isNotANumber(input) {
+    //     if (typeof input === 'number' || isNaN(input) ) {
+    //       return false;
+    //     } else {
+    //       return true;
+    //     }
+    //   }
+    //
+    //   function sumIsEqual (input1, input2, input3) {
+    // if(isNotANumber(input1, input2, input3)) {
+    //   return false;
+    // } else if (input1 + input2 === input3) {
+    //   return false;
+    // } else {
+    //   return true;
+    // }
+    //   }
+    //   console.log(sumIsEqual(3, 4, 7));
+    //   console.log(sumIsEqual(2, 2, 6));
+    //   console.log(sumIsEqual(4, 50, 2));
+    //   console.log(sumIsEqual('5', '2', '9'));
 
 
+    // JS Warmup June 20 Tuesday
 
+    // Write a function, returnUserObject, that takes in three String arguments: a username, password, and email. The function should return a user object with username, password and email properties.
+    //
+    // returnUserObject('jreich', 'password123', 'jreich@email.com') // returns...
+    //
+    // {
+    //   username: 'jreich',
+    //           password: 'password123',
+    //         email: 'jreich@email.com'
+    // }
+    //
+    // Assume all inputs are non-empty strings. The order of the properties does not matter.
+
+    // function returnUserObject(username, password, email) {
+    //   // return {
+    //   //   username,
+    //   //   password,
+    //   //   email
+    //   // }
+    //   //
+    //   // const user = {}
+    //   // user.username = username;
+    //   // user.password = password;
+    //   // user.email = email;
+    //   // return user;
+    //
+    //  // return {
+    //  //   username: username,
+    //  //   password: password,
+    //  //   email: email
+    //  // }
+    // }
+
+    // console.log(returnUserObject('jreich', 'password123', 'jreich@email.com'));
+
+    // June 21, 2023 Wednesday
+    // Create a function, returnProduct, that takes in an array of numbers and returns the product of ALL the numbers.(Use loops)
+    //         Assume all element in the input array are valid numbers. Assume all array inputs have at least 1 number.
+    // returnProduct([1, 2, 3]) // returns 1 * 2 * 3 = 6
+    // returnProduct([3, 3, 3]) // returns 3 * 3 * 3 = 27
+    // returnProduct([4, 1, 2]) // returns 4 * 1 * 2 = 8
+    // returnProduct([4, 0, 2]) // returns 4 * 0 * 2 = 0
+    // returnProduct([5, 3, 2]) // returns 5 * 3 * 2 = 30
+
+    // function returnProduct(nums) {
+    //   let product= 1;
+    //   for(let num of nums) {
+    //     product *= num;
+    //   }
+    //   return product;
+    // }
+
+    // function returnProduct(nums) {
+    //   let product=1;
+    //   nums.forEach((num)=> {
+    //     product *= num ;
+    //   });
+    //   return product;
+    // }
+
+    //  let product = 1;
+    // function returnProduct(nums) {
+    //   for(let i = 0; i < nums.length; i+=1) {
+    //     product *= nums[i];
+    // }
+    //   return product;
+    //  }
+    //
+    //
+    //  console.log(returnProduct([1, 2, 3]), "6");
+    //  console.log(returnProduct([3, 3, 3]), "27");
+    //  console.log(returnProduct([4, 1, 2]), "8");
+    //  console.log(returnProduct([4, 0, 2]), "0");
+    //  console.log(returnProduct([5, 3, 2]), "30");
+
+    // June 26, 2023 Monday
+    //   Create a function, returnTotalSales, that takes in an array of sales data objects and returns the sum of all
+    //   totalItemsSold properties. Assume all elements in the input array are valid sales data objects with a totalItemsSold
+    //   property.
+
+    //         EXAMPLE...
+
+    // const salesData = [
+    //   {
+    //     month: 'January',
+    //     totalItemsSold: 0
+    //   },
+    //   {
+    //     month: 'February',
+    //     totalItemsSold: 5
+    //   },
+    //   {
+    //     month: 'March',
+    //     totalItemsSold: 2
+    //   },
+    //   {
+    //     month: 'April',
+    //     totalItemsSold: 10
+    //   },
+    //   {
+    //     month: 'May',
+    //     totalItemsSold: 30
+    //   }
+    // ];
+    //Audrey's attempt with For Loop
+    //   let sum = 0
+    // function returnTotalSales(salesData) {
+    //  for (let i = 0; i < salesData.length; i += 1) {
+    //     sum += salesData[i].totalItemsSold;
+    //   }
+    //  return sum;
+    //   }
+
+    //Class Walk Thru (works only if you know how many elements available)
+    //   function returnTotalSales(salesData) {
+    //   const total = salesData[0].totalItemsSold +
+    //           salesData[1].totalItemsSold +
+    //     salesData[2].totalItemsSold +
+    //     salesData[3].totalItemsSold +
+    //     salesData[4].totalItemsSold;
+    //   return total;
+    //   }
+
+    // For Each Loop Class Walk Thru
+    // let sum = 0
+    //   salesData.forEach(element => {
+    //     sum += element.totalItemsSold;
+    //
+    //   });
+    //   return sum;
+
+    // console.log(returnTotalSales(salesData)); // returns 47
+
+    //june 27 2023 tuesday
+    //
+    //   Create a function, returnAvgSales, that takes in an array of sales data objects and returns the average of all
+    //   total items sold. Assume all elements in the input array are valid sales data objects with a totalItemsSold
+    //   property. If the array is empty, return 0. If the array has one element, return the value of the totalItemsSold.
+    //
+    //           EXAMPLE...
+    //
+    //   const salesData = [
+    //     {
+    //       month: 'January',
+    //       totalItemsSold: 0
+    //     },
+    //     {
+    //       month: 'February',
+    //       totalItemsSold: 5
+    //     },
+    //     {
+    //       month: 'March',
+    //       totalItemsSold: 2
+    //     },
+    //     {
+    //       month: 'April',
+    //       totalItemsSold: 10
+    //     },
+    //     {
+    //       month: 'May',
+    //       totalItemsSold: 30
+    //     }
+    //   ];
+
+    //audrey's solution
+    // let totalSales = 0
+    //   function returnAvgSales(salesData) {
+    //     for (let i=0; i < salesData.length; i++) {
+    //   totalSales += salesData[i].totalItemsSold;
+    //     }
+    //     return totalSales / salesData.length;
+    //   }
+
+    // //class walk thru with for each loop
+    //   function returnAvgSales(salesData) {
+    //     let total = 0;
+    //     salesData.forEach(salesDataObj => {
+    //       total += salesDataObj.totalItemsSold;
+    //     });
+    //     return total / salesData.length;
+    //   }
+    //
+    //
+    //     console.log(returnAvgSales(salesData)); // returns 9.4
+
+    // June 28 wednesday JS warmup
+    // Create a function, returnAdmins, that takes in an array of user objects
+    // and returns an array of only the admin user objects. Assume the array
+    // has at least one user object and all elements have an isAdmin property.
+    //
+    // //         Example:
+    //
+    //
+    // const users = [
+    //
+    //   {
+    //     username: 'fred123',
+    //     password: 'letmein',
+    //     email: 'fred123@email.com',
+    //     isAdmin: true
+    //   },
+    //   {
+    //     username: 'cindy123',
+    //     password: 'hello123',
+    //     email: 'cindy123@email.com',
+    //     isAdmin: false
+    //   },
+    //   {
+    //     username: 'kathy123',
+    //     password: 'letmein',
+    //     email: 'kathy123@email.com',
+    //     isAdmin: true
+    //   },
+    //   {
+    //     username: 'kyle123',
+    //     password: 'letmein',
+    //     email: 'kyle123@email.com',
+    //     isAdmin: false
+    //   }
+    // ];
+    //
+    // function returnAdmins(users) {
+    //   const admins = [];
+    //   //creating empty array to push objects to
+    //   for (let i = 0; i < users.length; i += 1 ) {
+    //     if (users[i].isAdmin === true) {
+    //       admins.push(users[i]);
+    //       // this will push the users object to const admins
+    //     }
+    //           } // needs to return the objects that have been pushed
+    //   return admins;
+    // }
+    //
+    // console.log(returnAdmins(users));
+
+    /*
+
+    returnAdmins(users) returns...
+
+    [
+
+        {
+            username: 'fred123',
+            password: 'letmein',
+            email: 'fred123@email.com',
+            isAdmin: true
+        },
+        {
+            username: 'kathy123',
+            password: 'letmein',
+            email: 'kathy123@email.com',
+            isAdmin: true
+        }
+    ]
+
+    */
+
+    //June 29 2023 Thursday
+    //   ================================= WARM UP
+
+    // Write a function that takes a neighborhood object and determines if it is desirable. A neighborhood is desirable.
+    //         If the median home price is less than 300000, crime rates are low, and the total rating of schools is at least 24.
+    // The function should return true if the neighborhood object is desirable and false otherwise.
+
+    // example data...
+
+    const neighborhood1 = {
+        neighborhood: "Lovely Estates",
+        medianHomePrice: 280000,
+        pool: true,
+        tennis: false,
+        crimeRate: "low",
+        schools: 22
+    };
+
+    const neighborhood2 = {
+        neighborhood: "Luminous Estates",
+        medianHomePrice: 270000,
+        pool: true,
+        tennis: false,
+        crimeRate: "high",
+        schools: 24
+    }
+
+    const neighborhood3 = {
+        neighborhood: "Oak Mountain",
+        medianHomePrice: 290000,
+        pool: false,
+        tennis: false,
+        crimeRate: "low",
+        schools: 24
+    }
+
+    const neighborhood4 = {
+        neighborhood: "Ginormous Acres",
+        medianHomePrice: 350000,
+        pool: true,
+        tennis: true,
+        crimeRate: "low",
+        schools: 27
+    }
+    //class walk thru
+    // function isDesirableNeighborhood(neighborhood) {
+    //   const isRightPrice = neighborhood.medianHomePrice < 300000;
+    //   const isRightCrimeRate = neighborhood.crimeRate === 'low';
+    //   const isRightSchoolRating = neighborhood.schools >= 24;
+    //   const isDesirable = isRightPrice&& isRightCrimeRate && isRightSchoolRating;
+    //   return isDesirable;
+    //
+    // }
+    // console.log(isDesirableNeighborhood(neighborhood1), false);
+    // console.log(isDesirableNeighborhood(neighborhood2), false);
+    // console.log(isDesirableNeighborhood(neighborhood3), true);
+    // console.log(isDesirableNeighborhood(neighborhood4), false);
+
+    //audrey's solution
+    // function desirableHome(neighborhood) {
+    //     if (neighborhood.medianHomePrice < 300000 &&
+    //         neighborhood.crimeRate === 'low' &&
+    //         neighborhood.schools >= 24) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
+
+    //ANOTHER WAY TO SOLVE WITHOUT CONDITIONAL STATEMENT
+    // function desirableHome(neighborhood) {
+    //     //don't need an if/else statement!!!
+    //     return neighborhood.medianHomePrice < 300000 &&
+    //         neighborhood.crimeRate === 'low' &&
+    //         neighborhood.schools >= 24;
+    // }
+
+    //object destructuring JS
+    // function desirableHome({ medianHomePrice, crimeRate, schools }) {
+    //     return medianHomePrice < 300000 &&
+    //         crimeRate === 'low' &&
+    //         schools >= 24;
+    // }
+    //     console.log(desirableHome(neighborhood1), false);
+    //     console.log(desirableHome(neighborhood2), false);
+    //     console.log(desirableHome(neighborhood3), true);
+    //     console.log(desirableHome(neighborhood4), false);
 
 </script>
 
