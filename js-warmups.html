@@ -338,41 +338,41 @@
 
     // example data...
 
-    const neighborhood1 = {
-        neighborhood: "Lovely Estates",
-        medianHomePrice: 280000,
-        pool: true,
-        tennis: false,
-        crimeRate: "low",
-        schools: 22
-    };
-
-    const neighborhood2 = {
-        neighborhood: "Luminous Estates",
-        medianHomePrice: 270000,
-        pool: true,
-        tennis: false,
-        crimeRate: "high",
-        schools: 24
-    }
-
-    const neighborhood3 = {
-        neighborhood: "Oak Mountain",
-        medianHomePrice: 290000,
-        pool: false,
-        tennis: false,
-        crimeRate: "low",
-        schools: 24
-    }
-
-    const neighborhood4 = {
-        neighborhood: "Ginormous Acres",
-        medianHomePrice: 350000,
-        pool: true,
-        tennis: true,
-        crimeRate: "low",
-        schools: 27
-    }
+    // const neighborhood1 = {
+    //     neighborhood: "Lovely Estates",
+    //     medianHomePrice: 280000,
+    //     pool: true,
+    //     tennis: false,
+    //     crimeRate: "low",
+    //     schools: 22
+    // };
+    //
+    // const neighborhood2 = {
+    //     neighborhood: "Luminous Estates",
+    //     medianHomePrice: 270000,
+    //     pool: true,
+    //     tennis: false,
+    //     crimeRate: "high",
+    //     schools: 24
+    // }
+    //
+    // const neighborhood3 = {
+    //     neighborhood: "Oak Mountain",
+    //     medianHomePrice: 290000,
+    //     pool: false,
+    //     tennis: false,
+    //     crimeRate: "low",
+    //     schools: 24
+    // }
+    //
+    // const neighborhood4 = {
+    //     neighborhood: "Ginormous Acres",
+    //     medianHomePrice: 350000,
+    //     pool: true,
+    //     tennis: true,
+    //     crimeRate: "low",
+    //     schools: 27
+    // }
     //class walk thru
     // function isDesirableNeighborhood(neighborhood) {
     //   const isRightPrice = neighborhood.medianHomePrice < 300000;
@@ -416,6 +416,49 @@
     //     console.log(desirableHome(neighborhood2), false);
     //     console.log(desirableHome(neighborhood3), true);
     //     console.log(desirableHome(neighborhood4), false);
+
+    // June 30 2023
+
+    // Write a function, returnLargestStudentCount, that takes in an array of classes returns the number of students in the largest class.
+    // Assume at least one class object will be present in the input array with students property set to a valid positive integer.
+
+        let classes = [
+        {class: "6th grade history", students: 18},
+        {class: "7th grade history", students: 20},
+        {class: "8th grade history", students: 22},
+        {class: "4th grade history", students: 30},
+        {class: "10th grade history", students: 25}
+    ];
+
+        //class walk thru
+    //put the variable outside of the loop so that the loop knows where to print the largest number (when not declaring function)
+
+    // function returnLargestStudentCount(classes) {
+
+    //put variable within function scope so that the return of the function
+
+    //     let highestStudentCount = 0;
+    //     for (let i = 0; i < classes.length; i+=1) {
+    //         if (highestStudentCount < classes[i].students) {
+    //             highestStudentCount = classes[i].students;
+    //         }
+    //     }
+    //     return highestStudentCount;
+    // }
+
+
+//     //audrey's solution
+
+// let mostStudents = classes[0].students;
+// function returnLargestStudentCount() {
+// for (let i=0; i < classes.length; ++i) {
+//     if (classes[i].students > mostStudents) {
+//         mostStudents = classes[i].students;
+//     }
+// } return mostStudents;
+// }
+//     console.log(returnLargestStudentCount(classes)); // returns 30
+
 
 </script>
 
