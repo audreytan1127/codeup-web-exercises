@@ -47,34 +47,53 @@
 
         subHeader.style.color = 'blue';
 
+
+        //class walk thru solution for every other li is grey
+
+        // let listItems = document.getElementsByTagName('li');
+        // for(let i = 0; i< listItems.length; i+=2) {
+        //     listItems[i].style.color = 'lime';
+        // }
+
+
+        // audrey's solution
         function everyOtherLiGrey() {
             // Uncomment the next line and get all list items
             let listItems = document.getElementsByTagName('li');
             for (let i = 0; i < listItems.length; i++) {
-                if (i%2 === 0) {
+                // Set text color of li with dbid = 1 to blue
+                //class walk thru
+                if (listItems[i].getAttribute('data-dbid') === '1') {
+                    listItems[i].style.color = 'blue';
+                    continue;
+                }
+                if (i % 2 === 0) {
                     // Set text color on every other list item to grey
                     listItems[i].style.color = 'grey';
-                }else {
-
-                    listItems[i].style.color = 'black';
                 }
             }
         }
+
         everyOtherLiGrey();
 
-// Set text color of li with dbid = 1 to blue
 
-let firstBlue = document.querySelector('li');
-firstBlue.style.color = 'blue';
+//audrey's solution
+// let firstBlue = document.querySelector('li');
+// firstBlue.style.color = 'blue';
 
         //Uncomment the next line and get all elements with class name sub-paragraph
 
-        let subParagraphs = document.querySelector('.sub-paragraph')
+        let subParagraphs = document.querySelector('.sub-paragraph');
 
 
         // Change the text in the first sub-paragraph to "Mission Accomplished!"
 
         subParagraphs.innerText = "Mission Accomplished!";
+
+
+        //class walk thru
+        // const subParagraphs = document.getElementsByClassName('sub-paragraph');
+        // subParagraphs[0].innerText = 'Mission Accomplished!';
 
     })();
 </script>
