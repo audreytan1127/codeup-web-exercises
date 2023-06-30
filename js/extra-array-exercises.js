@@ -1,23 +1,53 @@
 "use strict"
+// /**
+//  * JS Array Practice
+//  * Intermediate Array practice: array creation, iteration, and manipulation
+//  */
+
+//Array for Exercise 0 and 1
+let array1 = ['hello', 'hi', 'hey', 'ni hao', 'konichiwa'];
 
 // Exercise 0. Write a function named first() that returns only the first element of an array
-/**
- * JS Array Practice
- * Intermediate Array practice: array creation, iteration, and manipulation
- */
-let array1 =['hello', 'hi', 'hey', 'ni hao', 'konichiwa'];
-function first([array1]) {
-    console.log(array1[0]);
-}
-first([array1]);
-// Exercise 1. Write a function named secondToLast() that returns the second to last element
-function secondToLast([array1]) {
-    console.log(array1.length);
-}
+// function first([array1]) {
+//     console.log(array1[0]);
+// }
+// first([array1]);
 
-// Exercise 2. Write a function named rest() that takes an an array and returns an array containing everything except the first element.
+
+// Exercise 1. Write a function named secondToLast() that returns the second to last element
+// function secondToLast(array1) {
+//     return array1[array1.length-2];
+// }
+// console.log(secondToLast(array1));
+
+
+// Exercise 2. Write a function named rest() that takes in an array and returns an array containing everything except the first element.
+// function rest(array1) {
+//     //create new array constant to print array without the first item
+//     let arrayHello = [];
+//     //this is the counter for array items being placed into the new array constant---arrayHello
+//     let x = 0
+//     for (let i = 1; i < array1.length; i += 1) {
+//         arrayHello[x] = array1[i];
+//         //will continue to add items from array, if not added, will only print last item of array
+//         x++;
+//     } return arrayHello;
+// }
+// console.log(rest(array1));
+
 
 // Exercise 3. Write a function named getLongestString that takes in an array of strings and returns the longest string of that array
+
+let longestString = '';
+function getLongestString(array1) {
+    for (let i = 0; i < array1.length; i++) {
+        if (array1[i].length > longestString) {
+        longestString = array1[i].length;
+        }
+    } return longestString;
+}
+
+console.log(getLongestString(array1));
 
 // Exercise 3.1 Write a function named getShortestString that takes in an array of strings and returns the shortest string in that array.
 

@@ -27,74 +27,115 @@
     pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
+<button type="button" id="main-header-btn">Change Main Header </button>
+<button type="button" id="sub-header-btn"> Change Sub Header </button>
+<button type="button" id="li-color-btn"> Change Listed Items </button>
+<button type="button" id="sub-paragraph-btn"> Change Paragraph Text </button>
+
 
 <script>
     (function () {
         "use strict";
+
+        //DOM event listener exercise
+
+        //Main Header Button
+        const mainHeaderBtn = document.getElementById('main-header-btn');
+        const mainHeader = document.getElementById('main-header');
+        mainHeaderBtn.addEventListener('click', () => {
+            mainHeader.innerHTML = "Javascript is Cool";
+        });
+
+        //Sub Header Button
+        const subHeaderBtn = document.getElementById('sub-header-btn');
+        const subHeader = document.getElementById('sub-header');
+        subHeaderBtn.addEventListener('click', () => {
+            subHeader.style.color = 'blue';
+        });
+
+        //Li Color Change Button (Double Click Changes 1st li)
+        const liChangeBtn = document.getElementById('li-color-btn');
+        liChangeBtn.addEventListener('click', () => {
+            const listItems = document.getElementsByTagName('li');
+            for(let i = 0; i< listItems.length; i+=2) {
+                listItems[i].style.color = 'grey';
+            }});
+        liChangeBtn.addEventListener('dblclick', () => {
+            document.querySelector('li').style.color = 'blue';
+        });
+
+        //Change sub-paragraph text
+        const subParagraphTextBtn = document.getElementById('sub-paragraph-btn');
+        subParagraphTextBtn.addEventListener('click', () => {
+            let subParagraphs = document.getElementsByClassName('sub-paragraph');
+            subParagraphs[0].innerText = "Mission Accomplished!";
+        });
+
+
         //  Uncomment next line and get the main header element by id
 
-        const mainHeader = document.getElementById('main-header');
-
-        // Set inner html of mainHeader to "JavaScript is Cool"
-
-        mainHeader.innerHTML = "Javascript is Cool";
-
-        // Uncomment the next line and get the sub header element by id
-
-        const subHeader = document.getElementById('sub-header');
-
-        // Set the text color of subHeader to blue
-
-        subHeader.style.color = 'blue';
-
-
-        //class walk thru solution for every other li is grey
-
-        // let listItems = document.getElementsByTagName('li');
-        // for(let i = 0; i< listItems.length; i+=2) {
-        //     listItems[i].style.color = 'lime';
-        // }
-
-
-        // audrey's solution
-        function everyOtherLiGrey() {
-            // Uncomment the next line and get all list items
-            let listItems = document.getElementsByTagName('li');
-            for (let i = 0; i < listItems.length; i++) {
-                // Set text color of li with dbid = 1 to blue
-                //class walk thru
-                if (listItems[i].getAttribute('data-dbid') === '1') {
-                    listItems[i].style.color = 'blue';
-                    continue;
-                }
-                if (i % 2 === 0) {
-                    // Set text color on every other list item to grey
-                    listItems[i].style.color = 'grey';
-                }
-            }
-        }
-
-        everyOtherLiGrey();
-
-
-//audrey's solution
-// let firstBlue = document.querySelector('li');
-// firstBlue.style.color = 'blue';
-
-        //Uncomment the next line and get all elements with class name sub-paragraph
-
-        let subParagraphs = document.querySelector('.sub-paragraph');
-
-
-        // Change the text in the first sub-paragraph to "Mission Accomplished!"
-
-        subParagraphs.innerText = "Mission Accomplished!";
-
-
-        //class walk thru
-        // const subParagraphs = document.getElementsByClassName('sub-paragraph');
-        // subParagraphs[0].innerText = 'Mission Accomplished!';
-
+//         const mainHeader = document.getElementById('main-header');
+//
+//         // Set inner html of mainHeader to "JavaScript is Cool"
+//
+//         mainHeader.innerHTML = "Javascript is Cool";
+//
+//         // Uncomment the next line and get the sub header element by id
+//
+//         const subHeader = document.getElementById('sub-header');
+//
+//         // Set the text color of subHeader to blue
+//
+//         subHeader.style.color = 'blue';
+//
+//
+//         //class walk thru solution for every other li is grey
+//
+//         // let listItems = document.getElementsByTagName('li');
+//         // for(let i = 0; i< listItems.length; i+=2) {
+//         //     listItems[i].style.color = 'lime';
+//         // }
+//
+//
+//         // audrey's solution
+//         function everyOtherLiGrey() {
+//             // Uncomment the next line and get all list items
+//             let listItems = document.getElementsByTagName('li');
+//             for (let i = 0; i < listItems.length; i++) {
+//                 // Set text color of li with dbid = 1 to blue
+//                 //class walk thru
+//                 if (listItems[i].getAttribute('data-dbid') === '1') {
+//                     listItems[i].style.color = 'blue';
+//                     continue;
+//                 }
+//                 if (i % 2 === 0) {
+//                     // Set text color on every other list item to grey
+//                     listItems[i].style.color = 'grey';
+//                 }
+//             }
+//         }
+//
+//         everyOtherLiGrey();
+//
+//
+// //audrey's solution
+// // let firstBlue = document.querySelector('li');
+// // firstBlue.style.color = 'blue';
+//
+//         //Uncomment the next line and get all elements with class name sub-paragraph
+//
+//         let subParagraphs = document.querySelector('sub-paragraph');
+//
+//
+//         // Change the text in the first sub-paragraph to "Mission Accomplished!"
+//
+//         subParagraphs.innerText = "Mission Accomplished!";
+//
+//
+//         //class walk thru
+//         // const subParagraphs = document.getElementsByClassName('sub-paragraph');
+//         // subParagraphs[0].innerText = 'Mission Accomplished!';
+//
     })();
 </script>
 
