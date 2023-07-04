@@ -72,6 +72,32 @@
         });
 
 
+        // 1. When a user hits the "g" key, the background of the page should turn purple.
+        const changeBodyColor = document.getElementsByTagName('body');
+        document.addEventListener('keyup', (event) => {
+            let name = event.key;
+            if (name === "g") {
+                changeBodyColor[0].style.backgroundColor = 'purple';
+            }
+        });
+
+
+        // 2. Every time the enter key is pressed, increment and display a counter that
+
+       document.addEventListener('keydown', (enterin) => {
+           let enterHit = enterin.key;
+           if(enterHit === "Enter") {
+               alert('you have hit the enter button!');
+           }
+       })
+
+        // shows the total number of times the enter key has been pressed.
+        // 3. When someone types 1, 2, 3 in a row, show an alert that says "You get a 50%
+        // discount!".
+
+
+
+
         //  Uncomment next line and get the main header element by id
 
 //         const mainHeader = document.getElementById('main-header');
