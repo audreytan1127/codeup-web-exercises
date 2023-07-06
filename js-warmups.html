@@ -422,7 +422,7 @@
     // Write a function, returnLargestStudentCount, that takes in an array of classes returns the number of students in the largest class.
     // Assume at least one class object will be present in the input array with students property set to a valid positive integer.
 
-        let classes = [
+    let classes = [
         {class: "6th grade history", students: 18},
         {class: "7th grade history", students: 20},
         {class: "8th grade history", students: 22},
@@ -430,7 +430,7 @@
         {class: "10th grade history", students: 25}
     ];
 
-        //class walk thru
+    //class walk thru
     //put the variable outside of the loop so that the loop knows where to print the largest number (when not declaring function)
 
     // function returnLargestStudentCount(classes) {
@@ -447,17 +447,77 @@
     // }
 
 
-//     //audrey's solution
+    //     //audrey's solution
 
-// let mostStudents = classes[0].students;
-// function returnLargestStudentCount() {
-// for (let i=0; i < classes.length; ++i) {
-//     if (classes[i].students > mostStudents) {
-//         mostStudents = classes[i].students;
+    // let mostStudents = classes[0].students;
+    // function returnLargestStudentCount() {
+    // for (let i=0; i < classes.length; ++i) {
+    //     if (classes[i].students > mostStudents) {
+    //         mostStudents = classes[i].students;
+    //     }
+    // } return mostStudents;
+    // }
+    //     console.log(returnLargestStudentCount(classes)); // returns 30
+
+
+    // July 5th 2023
+
+    //audrey's solution
+    // 1. Create a function that prints 1 to 100.
+    // function numberToHundred(num) {
+    //     for (let i = 0; i <= 100; i++) {
+    //         console.log(i);
+    //     }
+    // }
+    //
+    // console.log(numberToHundred(1));
+
+
+    // 2. Create a function, fizzBuzz, that prints out all numbers from 1 to 100 but instead of printing
+    // numbers that are evenly divisible by 3, print 'fizz' and any numbers evenly divisible
+    // by 5, print 'buzz'. For any numbers that are evenly divisible by 3 AND 5, print 'fizzbuzz'.
+
+
+    //audrey's solution
+//     function fizzBuzz() {
+//
+//         for(let i = 0; i <= 100; i++) {
+//             if (i%3 === 0 && i%5 === 0) {
+//                 console.log('fizzbuzz');
+//             } else if (i%3 === 0) {
+//                 console.log('fizz');
+//             } else if (i%5 === 0) {
+//                 console.log('buzz');
+//             } else {
+//                 console.log(i);
+//             }
+//         }
 //     }
-// } return mostStudents;
-// }
-//     console.log(returnLargestStudentCount(classes)); // returns 30
+//
+// fizzBuzz();
+
+
+    /*
+    fizzBuzz() // prints...
+
+    1
+    2
+    'fizz'
+    4
+    'buzz'
+    'fizz'
+    7
+    8
+    'fizz'
+    'buzz'
+    11
+    'fizz'
+    13
+    14
+    'fizzbuzz'
+    etc...
+
+    */
 
 
 </script>
