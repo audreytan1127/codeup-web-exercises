@@ -84,16 +84,18 @@
 
         // 2. Every time the enter key is pressed, increment and display a counter that
 
-       document.addEventListener('keydown', (enterin) => {
-           let enterHit = enterin.key;
+       document.addEventListener('keydown', (entering) => {
+           let enterHit = entering.key;
            if(enterHit === "Enter") {
-               alert('you have hit the enter button!');
+               console.log('Enter key has been hit.');
            }
-       })
+       });
 
         // shows the total number of times the enter key has been pressed.
+
         // 3. When someone types 1, 2, 3 in a row, show an alert that says "You get a 50%
         // discount!".
+
 
 
 
