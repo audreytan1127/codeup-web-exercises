@@ -1,18 +1,60 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Konami Code</title>
 </head>
-<body>
-<h1>Konami Code</h1>
+<body style="background-image: url('img/cave-background.jpg'); background-size: cover;">
+<h1 style="color: white; display:flex; justify-content: center">Konami Code</h1>
 
-<script src="/js/jquery.js"></script>
+<div id="the-boss" style="display:flex; justify-content: center;">
+</div>
+<div id="cuddle-dragon" style="display:flex; justify-content: center;">
+</div>
+<button style="display: none;" id="stop-music">cuddle!!</button>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
     "use strict";
+    //     Used this instead of arguments.callee to reset keyboard strokes to normal after konami code executed.
+    //     https://stackoverflow.com/questions/19214977/alternative-to-arguments-callee
+    let bin = function (r) {
+        console.log(r);
+        $(document).off('keyup', bin, false);
+    }
+    $(document).on('keyup', bin);
 
-    $(document).keyup(function(event){
-        console.log(event.keyCode);
+
+    let userStoredKeyCode = [];
+
+    let konamiKeyCode = "38,38,40,40,37,39,37,39,66,65";
+
+    $(document).on('keydown', (e) => {
+        userStoredKeyCode.push(e.keyCode);
+        if (userStoredKeyCode.toString().indexOf(konamiKeyCode) >= 0) {
+            console.log('You have added 30 lives!');
+            $('h1').text("Get ready for the boss fight!!");
+            $('#the-boss').prepend('<img src="img/purple-dragon-unscreen.gif"/>');
+            $('#stop-music').show();
+            $('stop-music').css({'display': 'flex', 'justify-content': 'center'});
+            musicPlay.play();
+            $(document).unbind('keydown', bin);
+
+        }
     });
+
+    let musicPlay = new Audio('/audio/shostakovich-opus110-allegromolto.mp3');
+    $('#stop-music').on('click', () => {
+        musicPlay.pause();
+        $('#the-boss').hide();
+        $('#cuddle-dragon').prepend('<img src="img/small-purple-dragon-unscreen.gif"/>');
+    });
+
 </script>
 </body>
 </html>
