@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Attributes in JS and jQuery</title>
+    <style>
+        dt {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        dd {
+            margin-bottom: 5px;
+        }
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        .highlight {
+            background-color: lightgrey;
+        }
+
+        .yellow-bg {
+            background-color: yellow;
+        }
+
+        .first-li-blue {
+            color: blue;
+        }
+
+        .frame-holder {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        .frame {
+            border: 5px solid sandybrown;
+            width: 30vh;
+            height: 30vh;
+            margin-bottom: 15px;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+        .button-holder {
+            display: flex;
+            justify-content: space-evenly;
+        }
+        img {
+            width: 30vh;
+            height: 30vh;
+        }
+
+    </style>
+</head>
+
+<body>
+<h1> National Park FAQ!</h1>
+<dl>
+    <dt class="highlight"><h2>Yellowstone National Park</h2></dt>
+    <dd class="invisible">Located in three states (Wyoming, Montana, and Idaho) it displays small and large geysers due
+        to the volcanic hot spot it is atop.
+    </dd>
+
+    <dt class="highlight"><h2>Yosemite National Park</h2></dt>
+    <dd class="invisible">The largest sequoia trees are located within this national park in the Sierra Nevada
+        Mountains
+    </dd>
+
+    <dt class="highlight"><h2>Grand Teton National Park</h2></dt>
+    <dd class="invisible">This large national park is linked to Yellowstone National Park and displays large mountain
+        ranges.
+    </dd>
+
+    <dt class="highlight"><h2>Zion Canyon National Park</h2></dt>
+    <dd class="invisible">With it's steep red cliffs, a river flows into the Emerald Pools which is home to waterfalls
+        and hanging gardens.
+    </dd>
+
+    <dt class="highlight"><h2>Hawaii Volcanoes National Park</h2></dt>
+    <dd class="invisible">Within the heart of this park are two active volcanoes and is home to the largest lava dome
+        volcano in the world.
+    </dd>
+
+    <dt class="highlight"><h2>Mount Rainier National Park</h2></dt>
+    <dd class="invisible">South of Seattle, there are mountain ranges, meadows, and nearby volcanoes to view.</dd>
+
+
+    <dt class="highlight"><h2>Theodore Roosevelt National Park</h2></dt>
+    <dd class="invisible">Where the Great Plains and the Badlands meet to create a sanctuary for many wild animals, such
+        as elk, bison, and prarie dogs.
+    </dd>
+
+
+    <dt class="highlight"><h2>Redwood National and State Parks</h2></dt>
+    <dd class="invisible">Housed in California, projecting California to be the top contender for the most National
+        Parks in one state, at 8!
+    </dd>
+
+
+    <dt class="highlight"><h2>Great Smoky Mountains National Park</h2></dt>
+    <dd class="invisible">Between North Carolina and Tennessee, lush wildflowers bloom year-round in this mountainous
+        national park.
+    </dd>
+
+
+    <dt class="highlight"><h2>Gates of Arctic National Park and Preserve</h2></dt>
+    <dd class="invisible">This is the northernmost National Park in the United States, entirely north of the Arctic
+        Circle.
+    </dd>
+
+
+</dl>
+<button id="toggle-dd">Toggle description</button>
+
+<div>
+    <h3>Big Bend National Park</h3>
+    <ul>
+        <li>Named after the Rio Grande's largest bend in its river.</li>
+        <li>Over 450 bird species, more than any other national park.</li>
+        <li>There are a recorded 31 species of snakes residing in the park.</li>
+        <li>It is one of the most remote parks in the United States.</li>
+    </ul>
+</div>
+
+<div>
+    <h3>Arches National Park</h3>
+    <ul>
+        <li>Densest concentration of natural stone arches in the World.</li>
+        <li>There are many balanced rocks.</li>
+        <li>Winter time is the quietest and best time to explore this 76,000+ acre park.</li>
+        <li>The tallest arch is at a staggering 144 feet.</li>
+    </ul>
+</div>
+
+<div>
+    <h3>Grand Canyon National Park</h3>
+    <ul>
+        <li>The Grand Canyon is bigger than Rhode Island.</li>
+        <li>The park is over 1.2 million acres large.</li>
+        <li>The canyon goes a mile deep, is 277 miles long, and 18 miles wide.</li>
+        <li>The Grand Canyon can affect the weather in surrounding areas.</li>
+    </ul>
+</div>
+
+<button id="change-yellow-btn">Change Last Item to Yellow</button>
+
+<!--Frames with pictures-->
+<div class="container frame-holder">
+
+    <!--    frame with pic 1-->
+    <div class="frame">
+        <div id="frame-1" class="frame1">
+            <img src="img/plain-pizza.jpg"/>
+        </div>
+    </div>
+    <button class="swap-pic-btn">Swap Picture</button>
+    <!--End frame with pic 1-->
+
+    <!--    Frame with pic 2-->
+    <div class="frame">
+        <div id="frame-2" class="frame2">
+<img src="img/monstera.jpg"/>
+        </div>
+    </div>
+    <button class="swap-pic-btn">Swap Picture</button>
+    <!--End frame with pic 2-->
+
+    <!--    Frame with pic 3-->
+    <div class="frame">
+        <div id="frame-3" class="frame3">
+            <img src="img/small-purple-dragon-unscreen.gif"/>
+        </div>
+    </div>
+    <button class="swap-pic-btn">Swap Picture</button>
+    <!--    End frame with pic 3-->
+</div>
+<!--   end of frame holder div-->
+
+
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"
+        integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script>
+
+    "use strict"
+    //BONUS swap pictures
+
+    //variables
+const allPhotosContainer = document.querySelector('.container');
+    const swapButtons = document.querySelectorAll('.swap-pic-btn');
+
+    //functions
+function handleSwapClick(e) {
+    //place the button that is clicked into variable
+    const clickedButton = e.target;
+    //find the parent of the button that is clicked
+    const singleImageDiv= clickedButton.parentElement;
+    //if left button clicked, then swap left two photos (check if click was within the child of first div)
+    if(singleImageDiv === allPhotosContainer.firstElementChild) {
+        swapLeftTwoPhotos();
+    }
+    //if right button clicked, swap right two photos (check if within the child of last div
+   else if(singleImageDiv === allPhotosContainer.lastElementChild) {
+        swapRightTwoPhotos();
+    }
+    //if middle button clicked, swap left two or right two randomly
+    else {
+        Math.random() < 0.5 ? swapLeftTwoPhotos(): swapRightTwoPhotos;
+    }
+}
+
+
+function swapLeftTwoPhotos() {
+    //variables
+    //selecting the left photo
+    const leftPhoto = allPhotosContainer.querySelector('div:first-child img');
+    //selecting the middle photo
+    const middlePhoto = allPhotosContainer.querySelector('div:nth-child(2) img');
+    //stores the left photo into variable of tempPhotoSource
+    const tempPhotoSource = leftPhoto.src;
+    //replaces left photo with middle photo
+    leftPhoto.src = middlePhoto.src;
+    //places left photo into the middle photo by grabbing source from variable tempPhotoSource
+    middlePhoto.src = tempPhotoSource;
+}
+
+function swapRightTwoPhotos() {
+    const rightPhoto = allPhotosContainer.querySelector('div:last-child img');
+    const middlePhoto = allPhotosContainer.querySelector('div:nth-child(2) img');
+    const tempPhotoSource = rightPhoto.src;
+    rightPhoto.src = middlePhoto.src;
+    middlePhoto.src = tempPhotoSource;
+}
+
+    //events
+swapButtons.forEach((swapButton) => {
+    swapButton.addEventListener('click', handleSwapClick);
+});
+
+
+
+    //EXERCISE JS CLASS WALK-THRU
+
+    //variable...
+    //yellow li bg change
+    const yellowButton = document.querySelector('#change-yellow-btn');
+    const ulElements = document.querySelectorAll('ul');
+
+    //h3 click
+    const h3Elements = document.querySelectorAll('h3');
+
+    //li blue
+    const liElements = document.querySelectorAll('li');
+
+
+    //function...
+    //yellow li bg change
+    function handleMakeYellowClick() {
+        ulElements.forEach((ulElement) => {
+            ulElement.lastElementChild.classList.add('yellow-bg');
+        });
+    }
+
+    //h3 click
+function handleMakeBoldClick(e) {
+      const liElementCollection =  e.target.nextElementSibling.children;
+      Array.from(liElementCollection).forEach((liElement)=> {
+          liElement.classList.add('bold');
+      });
+}
+
+//li blue
+function handleMakeFontBlue(e) {
+        const clickedParent = e.target.parentElement;
+    clickedParent.firstElementChild.classList.add('first-li-blue');
+}
+
+    //events...
+    //yellow li bg change
+    yellowButton.addEventListener('click', handleMakeYellowClick);
+
+    //h3 click
+    h3Elements.forEach((h3Element) => {
+        h3Element.addEventListener('click', handleMakeBoldClick);
+    });
+
+    //li blue
+    liElements.forEach((liElement) => {
+        liElement.addEventListener('click', handleMakeFontBlue);
+    });
+
+
+
+
+    //EXERCISE jQuery change last li to have a yellow bg
+
+    //add event listener to button to change bg
+    // $('#change-yellow-btn').on('click', () => {
+    //
+    //     //For the each function in jquery, you need to declare the index and the element that you are trying to modify
+    //     //when grabbing each ul, it will put the uls into a list, so you need to call the element parameter in the code block
+    //     //to grab the last child in each of the uls
+    //     $('ul').each((index, ul) => {
+    //
+    //         //grab the particular ul and its children, take the last of the children and toggle the class of yellow-bg
+    //         $(ul).children().last().toggleClass('yellow-bg');
+    //     });
+    // });
+
+
+    //EXERCISE jQuery change li to bold when h3 clicked
+
+    //add event listener to h3
+    // $('h3').on('click', (function () {
+    //
+    //     //for the h3 that is clicked, the next ul is chosen, and its children are changed with the css properties
+    //     $(this).next('ul').children().css('font-weight', 'bold')
+    // }));
+
+
+    //EXERCISE jQuery change first li to blue when any li clicked
+
+    //add click event listener to all li
+//     $('li').on('click', function () {
+//
+// //find particular ul(parent) that clicked li(this) is in
+// //change first li(first) in ul to have blue text
+//         $(this).parent().children().first().toggleClass('first-li-blue');
+//     });
+
+
+    // //FIRST EXERCISE jQuery toggle visibility with button audrey solution
+
+    // //add class invisible to dd
+    $('dd').addClass('invisible');
+
+    // //target the button to add/remove class of invisible to dd and add event listener for a click
+    $('#toggle-dd').on('click', () => {
+        $('dd').toggleClass('invisible');
+    });
+
+
+    //FIRST EXERCISE class walk thru w jQuery
+    //add anchor tag into body
+    // $('body').append(`<a href='#'>Toggle Invisibility</a>`);
+
+    //add event listener onto anchor tag
+    // $('a').on('click', ()=>{
+
+    //toggle class invisible on the element dd
+    //     $('dd').toggleClass('invisible');
+    // });
+
+
+    // FIRST EXERCISE vanilla JS toggle visibility
+
+    //create variable to make anchor tag
+    // let toggleVisibility = document.createElement('a');
+    //
+    // //changes text between anchor tags
+    // toggleVisibility.innerText="Toggle Visibility";
+    //
+    // //selects body element
+    // const bodyElement = document.querySelector('body');
+    //
+    // //adds anchor tag into the body element (toggleVisibility)
+    // bodyElement.appendChild(toggleVisibility);
+    //
+    // //selects all dd's in document and stores into variable ddElements
+    // const ddElements = document.querySelectorAll('dd');
+    //
+    // //adds click event listener onto anchor tag
+    // toggleVisibility.addEventListener('click', ()=>{
+    //
+    //     //Affecting more than one element in the DOM, you need a loop!!
+    //     //loops through each dd elements that is stored in variable ddElements
+    //     ddElements.forEach((ddElement)=> {
+    //
+    //         //toggles invisible class on EACH (forEach) ddElement that has been clicked on
+    //         ddElement.classList.toggle('invisible');
+    //     });
+    // });
+
+
+    //BONUS jQuery highlight dt
+
+    //target dt and add event listener to dt
+    // $('dt').on('click', function() {
+
+    //targets the dt that is clicked and toggles class highlight on it
+    //     $(this).toggleClass('highlight');
+    // })
+
+
+    // BONUS JS highlight dt
+    //finding all tags with dt in it
+    const dtElements = document.querySelectorAll('dt');
+
+    //looping through the array of dts
+    dtElements.forEach((dtElement) => {
+
+        //add event listener to each dt
+        dtElement.addEventListener('click', () => {
+
+            //toggle class highlight on dts
+            dtElement.classList.toggle('highlight');
+        });
+    });
+
+
+    // EXAMPLE of event delegation= using e as function name and using .target
+
+    //target dl
+    const dlElement = document.querySelector('dl');
+
+    //add event listener to dl for a click
+    dlElement.addEventListener('click', (e) => {
+
+        //tagName is in all caps
+        //localName is in all lowercase
+        //conditional statement that says if target has dl as a tag, then
+        if (e.target.tagName === 'DL') {
+
+            //code to toggle the class highlight on the event that is being clicked.
+            e.target.classList.toggle('highlight');
+        }
+    });
+
+</script>
+
+</body>
+</html>
