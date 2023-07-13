@@ -6,35 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ajax JSON Blog</title>
-    <style>
-        h1 {
-            font-size: 3rem;
-        }
-
-        .post-title {
-            font-weight: bold;
-            font-size: 2rem;
-        }
-
-        .post-date, .post-categories {
-            font-style: italic;
-        }
-
-        .post-block {
-            width: 100%;
-            margin-bottom: 2vh;
-        }
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
+
 <body>
+
 <div>
     <h1>Blog Feed</h1>
 </div>
 
-
 <div id="posts">
 </div>
-
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossOrigin="anonymous"></script>
@@ -42,13 +24,23 @@
 
     $.ajax('./data/blog.json').done((response) => {
         for (let i = 0; i < response.length; i++) {
-            $('#posts').append(`<div class="post-title">${response[i].title}</div><br>`);
-            $('#posts').append(`<div class="post-date">${response[i].date}</div><br>`);
-            $('#posts').append(`<div class="post-content">${response[i].content}</div><br>`);
-            $('#posts').append(`<div class="post-categories">related to:(<a href="#">${response[i].categories})</a></div>`);
+
+            const card = $("<div class='post'></div>");
+
+            card.html(`
+                <h2 class="post-title">${response[i].title}</h2><br>
+                <div class="post-date">${response[i].date}</div><br>
+                <p class="post-content">${response[i].content}</p><br>
+                <div class="post-categories">related to:(<a href="#">${response[i].categories})</a></div>
+                `);
+
+            $('#posts').append(card);
         }
     });
 
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
 </body>
 </html>

@@ -6,68 +6,79 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>AJAX Practice</title>
-    <style>
-        #products {
-            width: 100%;
-            margin-bottom: 5vh;
-        }
-
-
-    </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 </head>
 <body>
 
-<h1>Tool</h1>
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 w-100">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <use xlink:href="#bootstrap"></use>
+            </svg>
+            <span class="fs-4">Ya Tool</span>
+        </a>
 
-<table id="products">
-    <thead>
-    <tr class="tool-header">
-        <th><h2>Tool</h2></th>
-        <th><h2>Stock</h2></th>
-        <th><h2>Price</h2></th>
-        <th><h2>Categories</h2></th>
-    </tr>
-    </thead>
-    <tbody id="insertProducts"></tbody>
-</table>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        </ul>
+    </header>
+</div>
 
+<div class="container w-100">
+    <div class="row d-flex justify-center justify-space-evenly">
+        <table id="products" class="col d-flex flex-wrap">
+            <thead>
+            <tr class="tool-header">
+            </tr>
+            </thead>
+            <tbody id="insertProducts"></tbody>
+        </table>
+    </div>
+</div>
 
-<button type="reset">Refresh Inventory List</button>
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<button class="w-75" type="reset">Refresh Inventory List</button>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
-    (function() {
+    (function () {
         "use strict";
         // TODO: Create an AJAX GET request for the file under data/inventory.json
         //fetch data from api
-$.ajax("data/inventory.json").done((data) => {
-    //look thru data of api
-        console.log(data);
+        $.ajax("data/inventory.json").done((data) => {
+            //look thru data of api
+            console.log(data);
 
-    //loop thru json array
-    for(let i=0; i<data.length; i++) {
+            //loop thru json array
+            for (let i = 0; i < data.length; i++) {
 
-    //store each data point into a variable
-        let title = data[i].title;
-        let quantity = data[i].quantity;
-        let price = data[i].price;
-        let categories = data[i].categories;
+                const toolCard = $("<div class='card'></div>");
 
-    //stored data points print into table
-    //create elements to store data points (<td>)
-        let itemTitle = $('#insertProducts').append(`<td class = title>${title} </td>`);
-        let itemQuantity = $('#insertProducts').append(`<td class = quantity>${quantity}</td>`);
-        let itemPrice = $('#insertProducts').append(`<td class = price>${price}</td>`);
-        let itemCategories = $('#insertProducts').append(`<td class = categories>${categories}</td>`);
+                toolCard.html(`
 
-//create rows to store element and data points
-    let newItemRow = $('#insertProducts').append(`<tr class = newItem>${itemTitle} ${itemQuantity} ${itemPrice} ${itemCategories}</tr>`)
-    }
+                <th class = title>${data[i].title} </th>
+                <td class = quantity>Quantity: ${data[i].quantity}</td>
+                <td class = price>Price: ${data[i].price}</td>
+                <td class = categories>Categories: ${data[i].categories}</td>
+                `)
 
-});
+             $('#insertProducts').append(toolCard);
+            }
+
+        });
 
     })();
 
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
 </body>
 </html>
