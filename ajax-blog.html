@@ -6,8 +6,49 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ajax JSON Blog</title>
+    <style>
+        h1 {
+            font-size: 3rem;
+        }
+
+        .post-title {
+            font-weight: bold;
+            font-size: 2rem;
+        }
+
+        .post-date, .post-categories {
+            font-style: italic;
+        }
+
+        .post-block {
+            width: 100%;
+            margin-bottom: 2vh;
+        }
+    </style>
 </head>
 <body>
+<div>
+    <h1>Blog Feed</h1>
+</div>
 
+
+<div id="posts">
+</div>
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossOrigin="anonymous"></script>
+<script>
+
+    $.ajax('./data/blog.json').done((response) => {
+        for (let i = 0; i < response.length; i++) {
+            $('#posts').append(`<div class="post-title">${response[i].title}</div><br>`);
+            $('#posts').append(`<div class="post-date">${response[i].date}</div><br>`);
+            $('#posts').append(`<div class="post-content">${response[i].content}</div><br>`);
+            $('#posts').append(`<div class="post-categories">related to:(<a href="#">${response[i].categories})</a></div>`);
+        }
+    });
+
+</script>
 </body>
 </html>
