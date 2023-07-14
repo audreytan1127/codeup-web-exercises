@@ -42,25 +42,29 @@
     </div>
 </div>
 
-<button class="w-75" type="reset">Refresh Inventory List</button>
+<button id="refresh-btn" class="w-75" type="reset">Refresh Inventory List</button>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 <script>
     (function () {
+        const productContainer = document.querySelector("#products");
         "use strict";
-        // TODO: Create an AJAX GET request for the file under data/inventory.json
-        //fetch data from api
+const refreshButton = document.querySelector("#refresh-btn");
+        function loadInventory() {
+
+        //fetch inventory data from api
         $.ajax("data/inventory.json").done((data) => {
-            //look thru data of api
+            //look thru data of api thru console
             console.log(data);
 
-            //loop thru json array
+            //loop thru the json array that is placed into data.
             for (let i = 0; i < data.length; i++) {
-
+                productContainer.innerHTML('');
+                //declare variable to put tools into a div so it presents itself as a card.
                 const toolCard = $("<div class='card'></div>");
-
+                //call variable and place all the data that you want extrapolated from json into card.
                 toolCard.html(`
 
                 <th class = title>${data[i].title} </th>
@@ -73,6 +77,10 @@
             }
 
         });
+        //refreshes app when function is called
+        }
+
+        refreshButton.addEventListener('click', loadInventory);
 
     })();
 

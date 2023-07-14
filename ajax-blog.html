@@ -21,22 +21,26 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossOrigin="anonymous"></script>
 <script>
-
+$(()=> {
+    //request to database and run this function with response that comes back
     $.ajax('./data/blog.json').done((response) => {
+        //loop to append something into the container
         for (let i = 0; i < response.length; i++) {
-
+            //create a div to place the blog posts into a card
             const card = $("<div class='post'></div>");
-
+            //within the card, these are the elements and the data that we are going to append into post
             card.html(`
                 <h2 class="post-title">${response[i].title}</h2><br>
                 <div class="post-date">${response[i].date}</div><br>
                 <p class="post-content">${response[i].content}</p><br>
-                <div class="post-categories">related to:(<a href="#">${response[i].categories})</a></div>
+                <div class="post-categories">related to:(<a href="#">${response[i].categories})</a><hr></div>
                 `);
-
+            //will append all the above html into the container with the id of 'posts'.
             $('#posts').append(card);
         }
     });
+
+});
 
 </script>
 
