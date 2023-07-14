@@ -74,7 +74,7 @@ $(() => {
 //function that brings center of map to Paris
     function goToParis() {
 
-        //geocode takes in (place as a string, token) and like ajax.done(), the .then((response) =>{code for what to do with data})
+        //geocode takes in ('place', token) and like ajax.done(), the .then((response) =>{code for what to do with data})
         geocode('Paris', MAPBOX_TOKEN).then((data) => {
 
             //console logs coords of paris
