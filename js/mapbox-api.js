@@ -4,15 +4,18 @@ $(() => {
 
     //loads map
     const map = initializeMap();
+
     //markers created will be stored into variable marker
     const marker = createMarker();
+
     //popups created will be stored into variable popup
     const popup = createPopup();
 
 
+
     //Functions
 
-    //function that initializes the map
+    //function that initializes the map to center on codeup (class exercise)
     function initializeMap() {
         mapboxgl.accessToken = MAPBOX_TOKEN;
         const mapOptions = {
@@ -29,7 +32,9 @@ $(() => {
         return new mapboxgl.Map(mapOptions); //created new map object and stored global variable
     }
 
-    //function to make a marker
+
+
+    // //function to make a marker for codeup (class exercise)
     function createMarker() {
 
         //function that creates a marker at codeup
@@ -43,7 +48,9 @@ $(() => {
 
     }
 
-//function to create a popup
+
+
+// //function to create a popup for codeup (class exercise)
     function createPopup() {
 
         //creates popup
@@ -61,7 +68,10 @@ $(() => {
 `);
     }
 
-//function that brings me to Paris
+
+
+
+//function that brings center of map to Paris
     function goToParis() {
 
         //geocode takes in (place as a string, token) and like ajax.done(), the .then((response) =>{code for what to do with data})
@@ -75,7 +85,7 @@ $(() => {
         })
     }
 
-    //function that takes in coordinates from center of maop and prints on the screen the address
+    //function that takes in coordinates from center of map and prints on the screen the address
     function findAndPrintAddress() {
 
         //set variable of coords to the center of the map (will grab the coords of the location in the center of the map)
@@ -96,7 +106,7 @@ $(() => {
         });
     }
 
-    //function that uses geocode tot that the string 'the alamo, san antonio to mark the alamo
+    //function that uses the mapbox API geocode function to take in the string 'the alamo, san antonio' to mark the alamo
     //get coords to set a marker and popup at that location
     function markAlamo() {
 
@@ -131,13 +141,15 @@ $(() => {
 
     //Events
 
-    //when button 'take me to paris' is pressed: centers paris on the map
+    //when button 'take me to paris' is pressed: centers paris on the map thru function goToParis
     document.querySelector('#geocode-button').addEventListener('click', goToParis);
 
     //when button 'show address' is pressed : prints the center location's address into the h1
+    //thru function findAndPrintAddress
     document.querySelector('#reverse-geocode-button').addEventListener('click', findAndPrintAddress)
 
     //when button 'mark the alamo' is pressed: marker and popup for the alamo comes up onto map
+    //thru function markAlamo
     document.querySelector('#mark-alamo').addEventListener('click', markAlamo);
 
 
@@ -150,6 +162,11 @@ $(() => {
 
     //sets popup to work when marker is clicked
     marker.setPopup(popup);
+
+
+
+
+
 
 
 });
