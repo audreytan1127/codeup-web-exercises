@@ -1,0 +1,15 @@
+:root {
+    --main-color: rgb(175, 204, 151);
+    --second-color: #e5bbdd;
+    --third-color: #d09330;
+    --fourth-color: #8cc4b0;
+}
+
+.logo {
+    width: 8vh;
+    height: 8vh;
+}
+.nav-container {
+    margin: unset;
+    background-color: var(--main-color);
+}
