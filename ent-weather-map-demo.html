@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Weather Map Project</title>
 </head>
 <body>
 
@@ -53,46 +53,53 @@
 
     // TODO: log various parts of the API
 
-    // $.ajax(URL).done(data => {
-    //     console.log(data);
-    //     // TODO: log the city name
-    //     // TODO: log the first three-hour forecast block
-    //     // TODO: log the humidity for the first three-hour block
-    // }).fail(console.error);
+    $.ajax(URL).done(data => {
+        console.log(data);
+        // TODO: log the city name
+    console.log(data.city.name);
+        // TODO: log the first three-hour forecast block
+        console.log(data.list[0]);
+        // TODO: log the humidity for the first three-hour block
+        console.log(data.list[0].main.humidity);
+        // TODO: log the wind speed for the first three-hour block
+        console.log(data.list[0].wind.speed);
+
+    }).fail(console.error);
 
 
     // TODO: log the humidity for all days
 
-    // $.ajax(getWeatherURL(...ALAMO_COORDINATES))
-    //     .done((data) => {
-    //
-    //         data.list.forEach((day, index) => {
-    //             if (index % 8 === 0) {
-    //                 console.log(day.main.humidity);
-    //             }
-    //         });
-    //
-    //         // OR
-    //
-    //         for (let i = 0; i < data.list.length; i += 8) {
-    //             console.log(data.list[i].main.humidity);
-    //         }
-    //
-    //     })
-    //     .fail(console.error);
+    $.ajax(getWeatherURL(...ALAMO_COORDINATES))
+        .done((data) => {
+
+            data.list.forEach((day, index) => {
+                if (index % 8 === 0) {
+                    console.log(day.main.humidity);
+                }
+            });
+
+            // OR
+            //
+            // for (let i = 0; i < data.list.length; i += 8) {
+            //     console.log(data.list[i].main.humidity);
+            // }
+
+        })
+        .fail(console.error);
 
 
-    // TODO: log the min and max temp for each day
 
-    // $.ajax(getWeatherURL(...ALAMO_COORDINATES))
-    //     .done(data => {
-    //         console.log(data);
-    //         const minMaxTemps = returnMinMaxTemps(data);
-    //         minMaxTemps.forEach(minMaxTemp => {
-    //             console.log(minMaxTemp);
-    //         });
-    //     })
-    //     .fail(console.error);
+    // log the min and max temp for each day
+    $.ajax(getWeatherURL(...ALAMO_COORDINATES))
+        .done(data => {
+            console.log(data);
+            const minMaxTemps = returnMinMaxTemps(data);
+            minMaxTemps.forEach(minMaxTemp => {
+                console.log(minMaxTemp);
+            });
+        })
+        .fail(console.error);
+
 
 </script>
 </body>
