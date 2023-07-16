@@ -28,6 +28,15 @@ $(() => {
     //find div to print current weather stats
     const grabTodayWeather = document.querySelector('#today-weather');
 
+    //find div to print five-day forecast
+    const fiveDayForecast = document.querySelector('#five-day-forecast');
+
+    //creates html element div
+    let createDiv = document.createElement("div");
+
+    //creates html element p
+    let createParagraph = document.createElement("p");
+
 ///////////////////     FUNCTIONS   //////////////////////////////////////////////
 
     //function that initializes the map to center on codeup (class exercise)
@@ -113,13 +122,15 @@ $(() => {
                 <div class="card"
                 <div class ="d-flex flex-column justify-center">
                 <div class="text-center">Date and Time: ${currentDateAndTime}</div>
-                <h2 class="text-center">Current Temperature: ${currentTemp} (F)</h2>
+                <h1 class="text-center">Current Temperature: ${currentTemp} (F)</h1>
                 <div class="text-center">Feels like: ${feelsLike} (F)</div>
                 <div class="text-center">${weatherDescription}</div>
                 <div class="text-center">Wind: ${windSpeed}</div>
                 </div>
              `
     };
+
+
 
 // Simple way to create URL for request based on coordinates
     function getWeatherURL(lat, lon) {
@@ -132,7 +143,7 @@ $(() => {
         console.log(data);
     }).fail(console.error);
 
-//logs data that I am grabbing from API response
+//request data from API response and do something with the response
     $.ajax(URL).done(data => {
         //call function to get city name
         renderDivCity(data.city.name);
@@ -156,7 +167,25 @@ $(() => {
             data.list.forEach((day, index) => {
                 //for each day (each block goes by 3 hours, 24 hours in a day = 8 blocks)
                 if (index % 8 === 0) {
-                    console.log(day.main.humidity);
+                    console.log(`Humidity: ${day.main.humidity}`);
+                    console.log(`${day.main.temp}`);
+                    console.log(`${day.main.feels_like}`);
+                    let fiveDayHumidity = $(document.createElement('div'))
+                        .addClass("card")
+                        .text(`Humidity: ${day.main.humidity} %
+                        Temperature: ${day.main.temp} (F)
+                        Feels Like: ${day.main.feels_like} (F)`)
+                        .css({
+                        display: 'block',
+                        fontSize: '2rem',
+
+                    });
+                    $('#five-day-forecast').append(fiveDayHumidity)
+
+                   //  fiveDayForecast.append(`Humidity: ${day.main.humidity}`);
+                   // fiveDayForecast.append(`Temperature: ${day.main.temp}`);
+                   // fiveDayForecast.append(`Feels Like: ${day.main.feels_like}`)
+                 ;
                 }
             });
 
@@ -170,7 +199,8 @@ $(() => {
         // loops through 40 three hour blocks of forecast and creates a new temperature object for each new day
         list.forEach(({dt_txt, main: {temp_max, temp_min}}) => {
             const [date, time] = dt_txt.split(' '); // splits the date time string
-            if (minMaxTempDays.length === 0 || time.startsWith('00')) { // add a new forecast day for each new date
+            if (minMaxTempDays.length === 0 || time.startsWith('00')) {
+                // add a new forecast day for each new date
                 minMaxTempDays.push({date, min: temp_min, max: temp_max});
             } else {
                 // replace the current days min and max temps if a higher max or lower min is found throughout the day
