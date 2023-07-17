@@ -109,6 +109,12 @@ $(() => {
         });
     }
 
+// Simple way to create URL for request based on coordinates
+    function getWeatherURL(lat, lon) {
+        return `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_APPID}`;
+    }
+
+    //INITIAL CITY AND ITS WEATHER CONDITIONS
     //renders city name in an h1 in div with #city
     function renderDivCity(cityName) {
         grabCityDiv.innerHTML =
@@ -130,67 +136,36 @@ $(() => {
              `
     };
 
-
-
-// Simple way to create URL for request based on coordinates
-    function getWeatherURL(lat, lon) {
-        return `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_APPID}`;
-    }
-
-
-//logs all the data from the url with the alamo coordinates input
-    $.ajax(URL).done(data => {
-        console.log(data);
-    }).fail(console.error);
-
+    //CALLS FUNCTIONS JUST CREATED FOR INITIAL MAP
 //request data from API response and do something with the response
     $.ajax(URL).done(data => {
         //call function to get city name
         renderDivCity(data.city.name);
-
         //call function to print current weather conditions into #today-weather
         renderCurrentConditions(data.list[0].dt_txt ,data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].description, data.list[0].wind.speed);
 
-
-//logs the weather object for the next three hours
-        console.log(data.list[0].main);
-
-        //logs weather for the next 3hours
-        console.log(data.list[0].weather[0].main);
-
     }).fail(console.error);
 
-
-//finds humidity for five days
+//INITIAL CITY FIVE-DAY WEATHER FORECAST
+//finds humidity, temp, and feels like for five days
     $.ajax(getWeatherURL(...ALAMO_COORDINATES))
         .done((data) => {
+            let currentCityWeather = []
             data.list.forEach((day, index) => {
                 //for each day (each block goes by 3 hours, 24 hours in a day = 8 blocks)
                 if (index % 8 === 0) {
-                    console.log(`Humidity: ${day.main.humidity}`);
-                    console.log(`${day.main.temp}`);
-                    console.log(`${day.main.feels_like}`);
-                    let fiveDayHumidity = $(document.createElement('div'))
-                        .addClass("card")
-                        .text(`Humidity: ${day.main.humidity} %
-                        Temperature: ${day.main.temp} (F)
-                        Feels Like: ${day.main.feels_like} (F)`)
-                        .css({
-                        display: 'block',
-                        fontSize: '2rem',
+                    //going to add multiple divs with data points into empty array
+                    currentCityWeather += '<div class="five-day-card">'
+                    currentCityWeather += `Temp: <div>${day.main.temp}</div>`
+                    currentCityWeather += `Feels like: <div>${day.main.feels_like}</div>`
+                    currentCityWeather += `Humidity: <div>${day.main.humidity}</div>`
+                    currentCityWeather += `</div>`
 
-                    });
-                    $('#five-day-forecast').append(fiveDayHumidity)
+                    };
+                });
+                    $('#five-day-forecast').html(currentCityWeather);
+            }).fail(console.error);
 
-                   //  fiveDayForecast.append(`Humidity: ${day.main.humidity}`);
-                   // fiveDayForecast.append(`Temperature: ${day.main.temp}`);
-                   // fiveDayForecast.append(`Feels Like: ${day.main.feels_like}`)
-                 ;
-                }
-            });
-
-        })
-        .fail(console.error);
 
 /////   FUNCTIONS TO find min and max temps
     function returnMinMaxTemps({list}) {
@@ -212,7 +187,7 @@ $(() => {
         });
 
         return minMaxTempDays;
-    }
+    };
 
 //finds minimum and maximum temps for the next five days and uses above function to log info
     $.ajax(getWeatherURL(...ALAMO_COORDINATES))
@@ -223,6 +198,63 @@ $(() => {
             });
         })
         .fail(console.error);
+
+//USER INPUT IN SEARCH BOX WILL ADJUST MAP AND FIVE-DAY FORECAST
+//make search box work with user input
+    $('#search-button').click(function () {
+        //stores user search input into a variable
+        const userInput = $('#search-input').val();
+        //geocodes the coords for user search input
+        geocode(userInput, MAPBOX_TOKEN).then((data) => {
+            //makes a new popup and marker for user search input on map
+            const popup = new mapboxgl.Popup()
+            const marker = new mapboxgl.Marker()
+                .setLngLat(data)
+                .setPopup(popup)
+                .addTo(map);
+            popup.addTo(map);
+
+            //gets map to redirect to users search input city
+            map.flyTo({
+                center: data,
+                zoom: 14,
+                speed: 1,
+                essential: true
+            })
+
+          //FIVE-DAY FORECAST FOR USER SEARCH INPUT
+            // ajax request (getWeatherURL(data: gets coords but need to flip the lat & lon.))
+            $.ajax(getWeatherURL(data[1], data[0]))
+                .done((data) => {
+                    //what response API is giving for user input in search bar
+                    console.log(data)
+
+                    //create new variable to store info to print onto webpage from forEach loop
+                    let html = []
+                    //loop through data list by each day
+                    data.list.forEach((day, index) => {
+                        //for each day (each block goes by 3 hours, 24 hours in a day = 8 blocks)
+                        if (index % 8 === 0) {
+                            //going to add multiple divs with data points into empty array
+                            html += '<div class="five-day-card">'
+                            html += `Today it is: <div>${day.weather[0].description}</div>`
+                            html += `Feels like: <div>${day.main.feels_like}</div>`
+                            html += `Humidity: <div>${day.main.humidity}</div>`
+                            html += `</div>`
+
+                        }
+                    });
+                            //add html array data into html of div with ID of five-day-forecast
+                            $('#five-day-forecast').html(html);
+                            //changes city name into user input
+                            renderDivCity(data.city.name);
+                            // changes current weather div to city user searched
+                            renderCurrentConditions(data.list[0].dt_txt ,data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].description, data.list[0].wind.speed);
+
+                })
+                .fail(console.error);
+        });
+    });
 
 /////////////////       END OF FUNCTIONS to find min and max temps
 
