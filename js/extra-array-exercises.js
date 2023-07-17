@@ -4,7 +4,7 @@
 //  * Intermediate Array practice: array creation, iteration, and manipulation
 //  */
 
-//Array for Exercise 0 and 1
+//Array for Exercise 0 thru 3.1
 let array1 = ['hello', 'hi', 'hey', 'ni hao', 'konichiwa'];
 
 // Exercise 0. Write a function named first() that returns only the first element of an array
@@ -37,19 +37,33 @@ let array1 = ['hello', 'hi', 'hey', 'ni hao', 'konichiwa'];
 
 
 // Exercise 3. Write a function named getLongestString that takes in an array of strings and returns the longest string of that array
+// let longestLength = 0
+// let longestString = '';
+// function getLongestString(array1) {
+//     for (let i = 0; i < array1.length; i++) {
+//         if (array1[i].length > longestLength) {
+//             let longestLength = array1[i].length;
+//         longestString = array1[i];
+//
+//         }
+//     } return longestString;
+// }
+//
+// console.log(getLongestString(array1));
 
-let longestString = '';
-function getLongestString(array1) {
-    for (let i = 0; i < array1.length; i++) {
-        if (array1[i].length > longestString) {
-        longestString = array1[i].length;
-        }
-    } return longestString;
-}
+// Exercise 3.1 Write a function named getShortestString that takes in an array of strings and returns the shortest string in that array. NOT COMPLETED!!!!
+// let shortString = Infinity;
+// let shortestString = "";
+// function getShortestString(array1) {
+//     for (let i = 0; i < array1.length; i++) {
+//         if (array1[i].length < shortString) {
+//             let shortString = array1[i].length;
+//             shortestString = array1[i];
+//         }
+//     } return shortestString;
+// }
+// getShortestString(array1);
 
-console.log(getLongestString(array1));
-
-// Exercise 3.1 Write a function named getShortestString that takes in an array of strings and returns the shortest string in that array.
 
 // Exercise 4. Write a function named addTwoArrays that takes in two, one dimensional arrays. The function should return a single array containing all of the elements of the first array along with all of the elements of the second array
 // Example: addTwoArrays([1, 2, 3], [4, 5, 6]) should return [1, 2, 3, 4, 5, 6]
@@ -93,3 +107,6 @@ console.log(getLongestString(array1));
 // Zip returns a new array of arrays where each element is an array of the two elements at the same index
 // Example: zip([1, 2, 3], [4, 5, 6]) returns [[1, 4], [2, 5], [3, 6])
 // Example: zip(["a", "b", "c"], ["x", "y", "z"]) returns [["a", "x"], ["b", "y"], ["c", "z"]]
+
+
+
