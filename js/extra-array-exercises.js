@@ -51,18 +51,32 @@ let array1 = ['hello', 'hi', 'hey', 'ni hao', 'konichiwa'];
 //
 // console.log(getLongestString(array1));
 
-// Exercise 3.1 Write a function named getShortestString that takes in an array of strings and returns the shortest string in that array. NOT COMPLETED!!!!
-// let shortString = Infinity;
-// let shortestString = "";
-// function getShortestString(array1) {
-//     for (let i = 0; i < array1.length; i++) {
-//         if (array1[i].length < shortString) {
-//             let shortString = array1[i].length;
-//             shortestString = array1[i];
-//         }
-//     } return shortestString;
-// }
-// getShortestString(array1);
+// Exercise 3.1 Write a function named getShortestString that takes in an array of strings and returns the shortest string in that array.
+//create function getShortestString
+function getShortestString(arr) {
+    //create variable to compare the length of the
+    let shortLength = Infinity;
+    let shortest = "";
+
+    if (arr.length > 0) {
+        for (let i = 0; i < arr.length; i++) {
+            if (typeof arr[i] === 'string' && arr[i].length < shortLength) {
+                shortest = arr[i];
+                shortLength = arr[i].length;
+            }
+        }
+    }
+
+    return shortest;
+}
+
+let output = getShortestString(array1);
+console.log(output);
+
+
+//if next item is longer than previous, do not store into variable
+
+
 
 
 // Exercise 4. Write a function named addTwoArrays that takes in two, one dimensional arrays. The function should return a single array containing all of the elements of the first array along with all of the elements of the second array
