@@ -52,31 +52,37 @@ let array1 = ['hello', 'hi', 'hey', 'ni hao', 'konichiwa'];
 // console.log(getLongestString(array1));
 
 // Exercise 3.1 Write a function named getShortestString that takes in an array of strings and returns the shortest string in that array.
+
 //create function getShortestString
-function getShortestString(arr) {
-    //create variable to compare the length of the
-    let shortLength = Infinity;
-    let shortest = "";
-
-    if (arr.length > 0) {
-        for (let i = 0; i < arr.length; i++) {
-            if (typeof arr[i] === 'string' && arr[i].length < shortLength) {
-                shortest = arr[i];
-                shortLength = arr[i].length;
-            }
-        }
-    }
-
-    return shortest;
-}
-
-let output = getShortestString(array1);
-console.log(output);
-
-
-//if next item is longer than previous, do not store into variable
-
-
+// function getShortestString(arr) {
+//     //create variable to compare the length of an item in array to a longer string (infinity)
+//     let shortLength = Infinity;
+//     //create variable to store the item in array that is being compared by for loop
+//     let shortest = "";
+// //conditional statement to check if the array item is longer than 0
+//     if (arr.length > 0) {
+//         //for loop to go through array one by one
+//         for (let i = 0; i < arr.length; i++) {
+//             //another conditional statement which holds a guard clause of the array item having to be a string.
+//             //AND the item of the array has to be shorter than the infinity.
+//             if (typeof arr[i] === 'string' && arr[i].length < shortLength) {
+//                 //if these conditions were passed, the array item will then be placed into the variable (shortest)
+//                 shortest = arr[i];
+//                 //then the shortLength variable will be set equal to the array item length
+//                 shortLength = arr[i].length;
+//                 //the loop will continue through the array and set each item length equal to each other.
+//                 //if the length of the next item is shorter than the last, it will replace the item  and continue through the loop until the length of the array has been traversed.
+//             }
+//         }
+//     }
+// //the variable which is deemed the shortest in length will be returned
+//     return shortest;
+// }
+//
+// //the variable output is set equal to the funtion with array1 passing through as argument.
+// let output = getShortestString(array1);
+// //the output is console logged, printing the shortest length item in array
+// console.log(output);
 
 
 // Exercise 4. Write a function named addTwoArrays that takes in two, one dimensional arrays. The function should return a single array containing all of the elements of the first array along with all of the elements of the second array
