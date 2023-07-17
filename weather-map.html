@@ -41,11 +41,11 @@
             <!-- navigation items-->
             <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                 <!--                home page-->
-                <li><a href="#" class="nav-link px-2 text-secondary">Weather Today</a></li>
+                <li><a href="/" class="nav-link px-2 text-secondary">Weather Today</a></li>
                 <!--                redirect to a global warming link-->
-                <li><a href="#" class="nav-link px-2 text-white">Why is the Weather Like This?</a></li>
+                <li><a target="_blank" href="https://climate.nasa.gov/scientific-consensus/" class="nav-link px-2 text-white">Why is the Weather Like This?</a></li>
                 <!--                Link to my LinkedIn-->
-                <li><a href="#" class="nav-link px-2 text-white">About Dev</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/audrey-tan-76856b278/" class="nav-link px-2 text-white">About Dev</a></li>
             </ul>
 
             <!--            Find out how to take user input and place into geocode to find coordinates of search city, and print weather status of city.-->
@@ -74,10 +74,11 @@
 <div id="map" style="height: 20rem;" class="w-100 "></div>
 
 <!--Display Weather for the next 5 days-->
-<div class="container m-5">
-<div id="five-day-forecast" class="row d-flex gap-5"></div>
+<div class="container w-100">
+    <div class="w-100">
+<div id="five-day-forecast" class="col d-flex flex-wrap justify-content-between justify-content-center my-2"></div>
 </div>
-
+</div>
 
 
 <!--bootstrap attached javascript-->

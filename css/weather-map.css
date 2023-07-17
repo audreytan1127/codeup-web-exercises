@@ -16,6 +16,6 @@
 .five-day-card {
     border: 5px dotted green;
 }
-li {
+ul.five-day-weather-items li {
     list-style-image: url("../img/lil-plant-bullet-point.png");
 }

@@ -54,7 +54,7 @@ $(() => {
     function createMarker() {
 
         //function that creates a marker at codeup
-        return new mapboxgl.Marker()
+        return new mapboxgl.Marker({draggable:true})
 
             //sets the coords for codeup
             .setLngLat([-98.4912, 29.4252])
@@ -108,6 +108,54 @@ $(() => {
         return `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_APPID}`;
     }
 
+//FUNCTION TO UPDATE WEATHER AND CITY NAME TO MARKER LOCATION
+    function onDragEnd() {
+        const lngLat = marker.getLngLat();
+        //sets the open weather url to the lng and lat to marker coords
+            $.ajax(getWeatherURL(lngLat["lat"], lngLat["lng"]))
+                .done((markerResponse) => {
+
+                    //updates city name to where marker lands
+                    renderDivCity(markerResponse.city.name);
+
+                    renderCurrentConditions(markerResponse.list[0].main.temp, markerResponse.list[0].main.feels_like, markerResponse.list[0].weather[0].description, markerResponse.list[0].wind.speed);
+
+                    //declare variable to hold current weather for initial city
+                    let markerWeather = []
+                    //loop through the marker response list  to print info onto webpage
+                    markerResponse.list.forEach((date, indexNum) => {
+                        //for each day (each block goes by 3 hours, 24 hours in a day = 8 blocks)
+                        if (indexNum % 8 === 0) {
+                        //declare the constant minMaxTemps and set equal to function which gets info needed from api
+                        const minMaxTemps = returnMinMaxTemps(markerResponse);
+
+                            markerWeather += '<div class="five-day-card col-sm-12 col-md-6 col-lg-2">'
+                            markerWeather += `<ul class="five-day-weather-items text-start">`
+
+                                //declare constant and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
+                                markerWeather += `<li>Date: <div>${minMaxTemps[indexNum/8].date}</div></li>`;
+                                markerWeather += `<li>Minimum Temp: <div>${minMaxTemps[indexNum/8].min} F</div></li>`;
+                                markerWeather += `<li>Maximum Temp: <div> ${minMaxTemps[indexNum/8].max} F</div></li>`;
+
+                                //going to add multiple divs with data points into empty array
+                                markerWeather += `<li>Today it is: <div>${date.weather[0].description}</div></li>`
+                                markerWeather += `<li>Feels like: <div>${date.main.feels_like} F</div></li>`
+                                markerWeather += `<li>Humidity: <div>${date.main.humidity} %</div></li>`
+                                markerWeather += `</ul>`
+                                markerWeather += `</div>`
+                            // }
+                    }
+                });
+                $('#five-day-forecast').html(markerWeather);
+            }).fail(console.error);
+
+
+        // coordinates.style.display = 'block';
+        // coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+    }
+    marker.on('dragend', onDragEnd);
+
+
     //CREATED FUNCTIONS FOR INITIAL CITY AND ITS WEATHER CONDITIONS
     //renders city name in an h1 in div with #city
     function renderDivCity(cityName) {
@@ -120,11 +168,11 @@ $(() => {
         grabTodayWeather.innerHTML =
             `
                 <div class="card"
-                <div class ="d-flex flex-column justify-center text-center">
-                <h1 class="">Current Temperature: ${currentTemp} F</h1>
-                <div class="">Feels like: ${feelsLike} F</div>
-                <div class="">${weatherDescription}</div>
-                <div class="">Wind: ${windSpeed} MPH</div>
+                <div class ="d-flex flex-column justify-center ">
+                <h1 class="text-center">Current Temperature: ${currentTemp} F</h1>
+                <div class="text-center">Feels like: ${feelsLike} F</div>
+                <div class="text-center">${weatherDescription}</div>
+                <div class="text-center">Wind: ${windSpeed} MPH</div>
                 </div>
              `
     };
@@ -150,12 +198,12 @@ $(() => {
                 if (index % 8 === 0) {
                     //declare the constant minMaxTemps and set equal to function which gets info needed from api
                     const minMaxTemps = returnMinMaxTemps(data);
-                    currentCityWeather += '<div class="five-day-card col">'
-                    currentCityWeather += `<ul class="five-day-weather-items text-center">`
+                    currentCityWeather += '<div class="five-day-card col-sm-12 col-md-6 col-lg-2">'
+                    currentCityWeather += `<ul class="five-day-weather-items text-start">`
                     //declare constant and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
-                    currentCityWeather += `<li>Date: ${minMaxTemps[index / 8].date}</li>`;
-                    currentCityWeather += `<li>Minimum Temp: ${minMaxTemps[index / 8].min} F</li>`;
-                    currentCityWeather += `<li>Maximum Temp: ${minMaxTemps[index / 8].max} F</li>`;
+                    currentCityWeather += `<li>Date: <div>${minMaxTemps[index / 8].date}</div></li>`;
+                    currentCityWeather += `<li>Minimum Temp: <div>${minMaxTemps[index / 8].min} F</div></li>`;
+                    currentCityWeather += `<li>Maximum Temp: <div> ${minMaxTemps[index / 8].max} F</div></li>`;
                     //going to add multiple divs with data points into empty array
                     currentCityWeather += `<li>Today it is: <div>${day.weather[0].description}</div></li>`
                     currentCityWeather += `<li>Feels like: <div>${day.main.feels_like} F</div></li>`
@@ -240,7 +288,7 @@ $(() => {
                             //declare the constant minMaxTemps and set equal to function which gets info needed from api
                     const minMaxTemps = returnMinMaxTemps(data);
                     //call constant html and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
-                            html += '<div class="five-day-card col">'
+                            html += '<div class="five-day-card">'
                             html += `<ul class="five-day-weather-items">`
                             html +=`<li>Date: <div>${minMaxTemps[index/8].date}</div></li>`;
                             html +=`<li>Minimum Temp: <div>${minMaxTemps[index/8].min} F</div></li>`;
