@@ -13,3 +13,9 @@
     margin: unset;
     background-color: var(--main-color);
 }
+.five-day-card {
+    border: 5px dotted green;
+}
+li {
+    list-style-image: url("../img/lil-plant-bullet-point.png");
+}

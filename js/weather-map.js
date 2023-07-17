@@ -31,12 +31,6 @@ $(() => {
     //find div to print five-day forecast
     const fiveDayForecast = document.querySelector('#five-day-forecast');
 
-    //creates html element div
-    let createDiv = document.createElement("div");
-
-    //creates html element p
-    let createParagraph = document.createElement("p");
-
 ///////////////////     FUNCTIONS   //////////////////////////////////////////////
 
     //function that initializes the map to center on codeup (class exercise)
@@ -114,7 +108,7 @@ $(() => {
         return `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_APPID}`;
     }
 
-    //INITIAL CITY AND ITS WEATHER CONDITIONS
+    //CREATED FUNCTIONS FOR INITIAL CITY AND ITS WEATHER CONDITIONS
     //renders city name in an h1 in div with #city
     function renderDivCity(cityName) {
         grabCityDiv.innerHTML =
@@ -122,27 +116,26 @@ $(() => {
     };
 
     //render current weather conditions
-    function renderCurrentConditions(currentDateAndTime, currentTemp, feelsLike, weatherDescription, windSpeed) {
+    function renderCurrentConditions(currentTemp, feelsLike, weatherDescription, windSpeed) {
         grabTodayWeather.innerHTML =
             `
                 <div class="card"
-                <div class ="d-flex flex-column justify-center">
-                <div class="text-center">Date and Time: ${currentDateAndTime}</div>
-                <h1 class="text-center">Current Temperature: ${currentTemp} (F)</h1>
-                <div class="text-center">Feels like: ${feelsLike} (F)</div>
-                <div class="text-center">${weatherDescription}</div>
-                <div class="text-center">Wind: ${windSpeed}</div>
+                <div class ="d-flex flex-column justify-center text-center">
+                <h1 class="">Current Temperature: ${currentTemp} F</h1>
+                <div class="">Feels like: ${feelsLike} F</div>
+                <div class="">${weatherDescription}</div>
+                <div class="">Wind: ${windSpeed} MPH</div>
                 </div>
              `
     };
 
-    //CALLS FUNCTIONS JUST CREATED FOR INITIAL MAP
+    //CALLS FUNCTIONS CREATED FOR INITIAL MAP TO PRINT CITY NAME AND CONDITIONS
 //request data from API response and do something with the response
     $.ajax(URL).done(data => {
         //call function to get city name
         renderDivCity(data.city.name);
         //call function to print current weather conditions into #today-weather
-        renderCurrentConditions(data.list[0].dt_txt ,data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].description, data.list[0].wind.speed);
+        renderCurrentConditions(data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].description, data.list[0].wind.speed);
 
     }).fail(console.error);
 
@@ -150,18 +143,26 @@ $(() => {
 //finds humidity, temp, and feels like for five days
     $.ajax(getWeatherURL(...ALAMO_COORDINATES))
         .done((data) => {
+            //declare variable to hold current weather for initial city
             let currentCityWeather = []
             data.list.forEach((day, index) => {
                 //for each day (each block goes by 3 hours, 24 hours in a day = 8 blocks)
                 if (index % 8 === 0) {
+                    //declare the constant minMaxTemps and set equal to function which gets info needed from api
+                    const minMaxTemps = returnMinMaxTemps(data);
+                    currentCityWeather += '<div class="five-day-card col">'
+                    currentCityWeather += `<ul class="five-day-weather-items text-center">`
+                    //declare constant and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
+                    currentCityWeather += `<li>Date: ${minMaxTemps[index / 8].date}</li>`;
+                    currentCityWeather += `<li>Minimum Temp: ${minMaxTemps[index / 8].min} F</li>`;
+                    currentCityWeather += `<li>Maximum Temp: ${minMaxTemps[index / 8].max} F</li>`;
                     //going to add multiple divs with data points into empty array
-                    currentCityWeather += '<div class="five-day-card">'
-                    currentCityWeather += `Temp: <div>${day.main.temp}</div>`
-                    currentCityWeather += `Feels like: <div>${day.main.feels_like}</div>`
-                    currentCityWeather += `Humidity: <div>${day.main.humidity}</div>`
+                    currentCityWeather += `<li>Today it is: <div>${day.weather[0].description}</div></li>`
+                    currentCityWeather += `<li>Feels like: <div>${day.main.feels_like} F</div></li>`
+                    currentCityWeather += `<li>Humidity: <div>${day.main.humidity} %</div></li>`
+                    currentCityWeather += `</ul>`
                     currentCityWeather += `</div>`
-
-                    };
+                }
                 });
                     $('#five-day-forecast').html(currentCityWeather);
             }).fail(console.error);
@@ -208,11 +209,11 @@ $(() => {
         geocode(userInput, MAPBOX_TOKEN).then((data) => {
             //makes a new popup and marker for user search input on map
             const popup = new mapboxgl.Popup()
-            const marker = new mapboxgl.Marker()
-                .setLngLat(data)
-                .setPopup(popup)
-                .addTo(map);
-            popup.addTo(map);
+                    marker
+                        .setLngLat(data)
+                        .setPopup(popup)
+                        .addTo(map);
+                    popup.addTo(map);
 
             //gets map to redirect to users search input city
             map.flyTo({
@@ -227,29 +228,40 @@ $(() => {
             $.ajax(getWeatherURL(data[1], data[0]))
                 .done((data) => {
                     //what response API is giving for user input in search bar
-                    console.log(data)
+                    console.log(data);
+
+                    let html = []
 
                     //create new variable to store info to print onto webpage from forEach loop
-                    let html = []
                     //loop through data list by each day
                     data.list.forEach((day, index) => {
                         //for each day (each block goes by 3 hours, 24 hours in a day = 8 blocks)
                         if (index % 8 === 0) {
+                            //declare the constant minMaxTemps and set equal to function which gets info needed from api
+                    const minMaxTemps = returnMinMaxTemps(data);
+                    //call constant html and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
+                            html += '<div class="five-day-card col">'
+                            html += `<ul class="five-day-weather-items">`
+                            html +=`<li>Date: <div>${minMaxTemps[index/8].date}</div></li>`;
+                            html +=`<li>Minimum Temp: <div>${minMaxTemps[index/8].min} F</div></li>`;
+                            html +=`<li>Maximum Temp: <div>${minMaxTemps[index/8].max} F</div></li>`;
                             //going to add multiple divs with data points into empty array
-                            html += '<div class="five-day-card">'
-                            html += `Today it is: <div>${day.weather[0].description}</div>`
-                            html += `Feels like: <div>${day.main.feels_like}</div>`
-                            html += `Humidity: <div>${day.main.humidity}</div>`
+                            html += `<li>Today it is: <div>${day.weather[0].description}</div></li>`
+                            html += `<li>Feels like: <div>${day.main.feels_like} F</div></li>`
+                            html += `<li>Humidity: ${day.main.humidity} %</li>`
+                            html+= `</ul>`
                             html += `</div>`
 
                         }
                     });
                             //add html array data into html of div with ID of five-day-forecast
                             $('#five-day-forecast').html(html);
+
                             //changes city name into user input
                             renderDivCity(data.city.name);
+
                             // changes current weather div to city user searched
-                            renderCurrentConditions(data.list[0].dt_txt ,data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].description, data.list[0].wind.speed);
+                            renderCurrentConditions(data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].description, data.list[0].wind.speed);
 
                 })
                 .fail(console.error);
