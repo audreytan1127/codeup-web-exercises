@@ -110,6 +110,8 @@ $(() => {
         return `${OPEN_WEATHER_URL}?lat=${lat}&lon=${lon}&units=imperial&appid=${OPEN_WEATHER_APPID}`;
     }
 
+
+
 //FUNCTION TO UPDATE WEATHER AND CITY NAME TO MARKER LOCATION
     function onDragEnd() {
         const lngLat = marker.getLngLat();
@@ -192,6 +194,8 @@ $(() => {
     }).fail(console.error);
 
 
+
+
 //INITIAL CITY FIVE-DAY WEATHER FORECAST
 //finds humidity, temp, and feels like for five days
     $.ajax(getWeatherURL(...ALAMO_COORDINATES))
@@ -219,6 +223,8 @@ $(() => {
             });
             $('#five-day-forecast').html(currentCityWeather);
         }).fail(console.error);
+
+
 
 
 /////   FUNCTIONS TO find min and max temps
@@ -252,6 +258,9 @@ $(() => {
         })
         .fail(console.error);
 /////////////////       END OF FUNCTIONS to find min and max temps
+
+
+
 
 
 //USER INPUT IN SEARCH BOX WILL ADJUST MAP AND FIVE-DAY FORECAST
@@ -325,6 +334,9 @@ $(() => {
     });
 
 
+
+
+
 //PRESSING GO TO THE SHIRE WILL GO TO THE SHIRE
     //BULLETS DO NOT CHANGE CURRENTLY! WILL CONTINUE WORKING ON FUNCTIONALITY OF BUTTON
     $('#go-to-shire').click(function goToTheShire() {
@@ -396,6 +408,10 @@ $(() => {
                 .fail(console.error);
         });
     });
+
+
+
+
 
 
 ///////////////////////////    EVENTS      /////////////////////////////////////////////
