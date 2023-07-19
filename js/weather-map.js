@@ -31,6 +31,8 @@ $(() => {
     //find div to print five-day forecast
     const fiveDayForecast = document.querySelector('#five-day-forecast');
 
+
+
 ///////////////////     FUNCTIONS   //////////////////////////////////////////////
 
     //function that initializes the map to center on codeup (class exercise)
@@ -178,6 +180,7 @@ $(() => {
              `
     };
 
+
     //CALLS FUNCTIONS CREATED FOR INITIAL MAP TO PRINT CITY NAME AND CONDITIONS
 //request data from API response and do something with the response
     $.ajax(URL).done(data => {
@@ -187,6 +190,7 @@ $(() => {
         renderCurrentConditions(data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].description, data.list[0].wind.speed);
 
     }).fail(console.error);
+
 
 //INITIAL CITY FIVE-DAY WEATHER FORECAST
 //finds humidity, temp, and feels like for five days
@@ -238,7 +242,6 @@ $(() => {
 
         return minMaxTempDays;
     };
-
 //finds minimum and maximum temps for the next five days and uses above function to log info
     $.ajax(getWeatherURL(...ALAMO_COORDINATES))
         .done(data => {
@@ -248,6 +251,8 @@ $(() => {
             });
         })
         .fail(console.error);
+/////////////////       END OF FUNCTIONS to find min and max temps
+
 
 //USER INPUT IN SEARCH BOX WILL ADJUST MAP AND FIVE-DAY FORECAST
 //make search box work with user input
@@ -316,15 +321,16 @@ $(() => {
                 })
                 .fail(console.error);
         });
+
     });
 
-/////////////////       END OF FUNCTIONS to find min and max temps
 
-//Pressing button go to the shire will slide to new zealand
-    //BG AND BULLETS DO NOT CHANGE CURRENTLY! WILL CONTINUE WORKING ON FUNCTIONALITY OF BUTTON
+//PRESSING GO TO THE SHIRE WILL GO TO THE SHIRE
+    //BULLETS DO NOT CHANGE CURRENTLY! WILL CONTINUE WORKING ON FUNCTIONALITY OF BUTTON
     $('#go-to-shire').click(function goToTheShire() {
-        $('.page-wrapper').css('background-image', 'url( "../img/burning-lotr.jpg")');
-        $('.five-day-weather-items li').css('list-style-image', 'url( "../img/lotr-ring-logo.jpg")');
+        $('.page-wrapper').css('background-image', 'url( "../img/the-shire.jpg")');
+        // $('.five-day-weather-items').attr("src",  "../img/lotr-ring-logo.jpg");
+        $(".logo").attr("src", "../img/eye-lord-GIF-unscreen.gif");
 
         console.log('inside the function');
         //geocodes the coords for Tongoriro National Park New Zealand
@@ -346,7 +352,7 @@ $(() => {
             })
 
 
-            //FIVE-DAY FORECAST FOR USER SEARCH INPUT
+            //FIVE-DAY FORECAST FOR tongariro natl park new zealand
             // ajax request (getWeatherURL(data: gets coords but need to flip the lat & lon.))
             $.ajax(getWeatherURL(data[1], data[0]))
                 .done((data) => {
@@ -365,13 +371,13 @@ $(() => {
                             //call constant html and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
                             html += '<div class="five-day-card">'
                             html += `<ul class="five-day-weather-items">`
-                            html += `<li>Date: <div>${minMaxTemps[index / 8].date}</div></li>`;
-                            html += `<li>Minimum Temp: <div>${minMaxTemps[index / 8].min} F</div></li>`;
-                            html += `<li>Maximum Temp: <div>${minMaxTemps[index / 8].max} F</div></li>`;
+                            html += `<li class="change-lotr">Date: <div>${minMaxTemps[index / 8].date}</div></li>`;
+                            html += `<li class="change-lotr">Minimum Temp: <div>${minMaxTemps[index / 8].min} F</div></li>`;
+                            html += `<li class="change-lotr">Maximum Temp: <div>${minMaxTemps[index / 8].max} F</div></li>`;
                             //going to add multiple divs with data points into empty array
-                            html += `<li>Today it is: <div>${day.weather[0].description}</div></li>`
-                            html += `<li>Feels like: <div>${day.main.feels_like} F</div></li>`
-                            html += `<li>Humidity: ${day.main.humidity} %</li>`
+                            html += `<li class="change-lotr">Today it is: <div>${day.weather[0].description}</div></li>`
+                            html += `<li class="change-lotr">Feels like: <div>${day.main.feels_like} F</div></li>`
+                            html += `<li class="change-lotr">Humidity: ${day.main.humidity} %</li>`
                             html += `</ul>`
                             html += `</div>`
 
