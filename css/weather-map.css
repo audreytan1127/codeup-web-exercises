@@ -1,21 +1,43 @@
 :root {
     --main-color: rgb(175, 204, 151);
-    --second-color: #e5bbdd;
-    --third-color: #d09330;
-    --fourth-color: #8cc4b0;
+    --second-color: #f3cb3b;
+    --third-color: rgba(2, 0, 0, 0.49);
+    --fourth-color: #b22901;
 }
 
 .logo {
-    width: 8vh;
-    height: 8vh;
+    width: 15vh;
+    height: 10vh;
 }
 .nav-container {
     margin: unset;
-    background-color: var(--main-color);
+    background-color: var(--second-color);
 }
 .five-day-card {
-    border: 5px dotted green;
+
+   color: var(--second-color);
+    background-color: var(--third-color);
+
 }
 ul.five-day-weather-items li {
     list-style-image: url("../img/lil-plant-bullet-point.png");
+    /*list-style-image: url("../img/lotr-ring-logo.jpg");*/
+
+}
+body {
+    font-family: "Tangerine", cursive;
+    font-size: 24px;
+    background-image: url("../img/monstera.jpg");
+    /*background-image: url("../img/burning-lotr.jpg");*/
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.current-conditions {
+    color: var(--second-color);
+    background-color: var(--third-color);
+}
+#city {
+    color: var(--second-color);
+font-size: 50px;
 }

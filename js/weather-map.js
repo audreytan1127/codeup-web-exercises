@@ -54,7 +54,7 @@ $(() => {
     function createMarker() {
 
         //function that creates a marker at codeup
-        return new mapboxgl.Marker({draggable:true})
+        return new mapboxgl.Marker({draggable: true})
 
             //sets the coords for codeup
             .setLngLat([-98.4912, 29.4252])
@@ -112,38 +112,38 @@ $(() => {
     function onDragEnd() {
         const lngLat = marker.getLngLat();
         //sets the open weather url to the lng and lat to marker coords
-            $.ajax(getWeatherURL(lngLat["lat"], lngLat["lng"]))
-                .done((markerResponse) => {
+        $.ajax(getWeatherURL(lngLat["lat"], lngLat["lng"]))
+            .done((markerResponse) => {
 
-                    //updates city name to where marker lands
-                    renderDivCity(markerResponse.city.name);
+                //updates city name to where marker lands
+                renderDivCity(markerResponse.city.name);
 
-                    renderCurrentConditions(markerResponse.list[0].main.temp, markerResponse.list[0].main.feels_like, markerResponse.list[0].weather[0].description, markerResponse.list[0].wind.speed);
+                renderCurrentConditions(markerResponse.list[0].main.temp, markerResponse.list[0].main.feels_like, markerResponse.list[0].weather[0].description, markerResponse.list[0].wind.speed);
 
-                    //declare variable to hold current weather for initial city
-                    let markerWeather = []
-                    //loop through the marker response list  to print info onto webpage
-                    markerResponse.list.forEach((date, indexNum) => {
-                        //for each day (each block goes by 3 hours, 24 hours in a day = 8 blocks)
-                        if (indexNum % 8 === 0) {
+                //declare variable to hold current weather for initial city
+                let markerWeather = []
+                //loop through the marker response list  to print info onto webpage
+                markerResponse.list.forEach((date, indexNum) => {
+                    //for each day (each block goes by 3 hours, 24 hours in a day = 8 blocks)
+                    if (indexNum % 8 === 0) {
                         //declare the constant minMaxTemps and set equal to function which gets info needed from api
                         const minMaxTemps = returnMinMaxTemps(markerResponse);
 
-                            markerWeather += '<div class="five-day-card col-sm-12 col-md-6 col-lg-2">'
-                            markerWeather += `<ul class="five-day-weather-items text-start">`
+                        markerWeather += '<div class="five-day-card col-sm-12 col-md-6 col-lg-2">'
+                        markerWeather += `<ul class="five-day-weather-items text-start">`
 
-                                //declare constant and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
-                                markerWeather += `<li>Date: <div>${minMaxTemps[indexNum/8].date}</div></li>`;
-                                markerWeather += `<li>Minimum Temp: <div>${minMaxTemps[indexNum/8].min} F</div></li>`;
-                                markerWeather += `<li>Maximum Temp: <div> ${minMaxTemps[indexNum/8].max} F</div></li>`;
+                        //declare constant and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
+                        markerWeather += `<li>Date: <div>${minMaxTemps[indexNum / 8].date}</div></li>`;
+                        markerWeather += `<li>Minimum Temp: <div>${minMaxTemps[indexNum / 8].min} F</div></li>`;
+                        markerWeather += `<li>Maximum Temp: <div> ${minMaxTemps[indexNum / 8].max} F</div></li>`;
 
-                                //going to add multiple divs with data points into empty array
-                                markerWeather += `<li>Today it is: <div>${date.weather[0].description}</div></li>`
-                                markerWeather += `<li>Feels like: <div>${date.main.feels_like} F</div></li>`
-                                markerWeather += `<li>Humidity: <div>${date.main.humidity} %</div></li>`
-                                markerWeather += `</ul>`
-                                markerWeather += `</div>`
-                            // }
+                        //going to add multiple divs with data points into empty array
+                        markerWeather += `<li>Today it is: <div>${date.weather[0].description}</div></li>`
+                        markerWeather += `<li>Feels like: <div>${date.main.feels_like} F</div></li>`
+                        markerWeather += `<li>Humidity: <div>${date.main.humidity} %</div></li>`
+                        markerWeather += `</ul>`
+                        markerWeather += `</div>`
+                        // }
                     }
                 });
                 $('#five-day-forecast').html(markerWeather);
@@ -153,6 +153,7 @@ $(() => {
         // coordinates.style.display = 'block';
         // coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
     }
+
     marker.on('dragend', onDragEnd);
 
 
@@ -167,7 +168,7 @@ $(() => {
     function renderCurrentConditions(currentTemp, feelsLike, weatherDescription, windSpeed) {
         grabTodayWeather.innerHTML =
             `
-                <div class="card"
+                <div class="current-conditions card"
                 <div class ="d-flex flex-column justify-center ">
                 <h1 class="text-center">Current Temperature: ${currentTemp} F</h1>
                 <div class="text-center">Feels like: ${feelsLike} F</div>
@@ -211,9 +212,9 @@ $(() => {
                     currentCityWeather += `</ul>`
                     currentCityWeather += `</div>`
                 }
-                });
-                    $('#five-day-forecast').html(currentCityWeather);
-            }).fail(console.error);
+            });
+            $('#five-day-forecast').html(currentCityWeather);
+        }).fail(console.error);
 
 
 /////   FUNCTIONS TO find min and max temps
@@ -253,15 +254,16 @@ $(() => {
     $('#search-button').click(function () {
         //stores user search input into a variable
         const userInput = $('#search-input').val();
+
         //geocodes the coords for user search input
         geocode(userInput, MAPBOX_TOKEN).then((data) => {
             //makes a new popup and marker for user search input on map
             const popup = new mapboxgl.Popup()
-                    marker
-                        .setLngLat(data)
-                        .setPopup(popup)
-                        .addTo(map);
-                    popup.addTo(map);
+            marker
+                .setLngLat(data)
+                .setPopup(popup)
+                .addTo(map);
+            popup.addTo(map);
 
             //gets map to redirect to users search input city
             map.flyTo({
@@ -271,7 +273,7 @@ $(() => {
                 essential: true
             })
 
-          //FIVE-DAY FORECAST FOR USER SEARCH INPUT
+            //FIVE-DAY FORECAST FOR USER SEARCH INPUT
             // ajax request (getWeatherURL(data: gets coords but need to flip the lat & lon.))
             $.ajax(getWeatherURL(data[1], data[0]))
                 .done((data) => {
@@ -286,30 +288,30 @@ $(() => {
                         //for each day (each block goes by 3 hours, 24 hours in a day = 8 blocks)
                         if (index % 8 === 0) {
                             //declare the constant minMaxTemps and set equal to function which gets info needed from api
-                    const minMaxTemps = returnMinMaxTemps(data);
-                    //call constant html and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
+                            const minMaxTemps = returnMinMaxTemps(data);
+                            //call constant html and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
                             html += '<div class="five-day-card">'
                             html += `<ul class="five-day-weather-items">`
-                            html +=`<li>Date: <div>${minMaxTemps[index/8].date}</div></li>`;
-                            html +=`<li>Minimum Temp: <div>${minMaxTemps[index/8].min} F</div></li>`;
-                            html +=`<li>Maximum Temp: <div>${minMaxTemps[index/8].max} F</div></li>`;
+                            html += `<li>Date: <div>${minMaxTemps[index / 8].date}</div></li>`;
+                            html += `<li>Minimum Temp: <div>${minMaxTemps[index / 8].min} F</div></li>`;
+                            html += `<li>Maximum Temp: <div>${minMaxTemps[index / 8].max} F</div></li>`;
                             //going to add multiple divs with data points into empty array
                             html += `<li>Today it is: <div>${day.weather[0].description}</div></li>`
                             html += `<li>Feels like: <div>${day.main.feels_like} F</div></li>`
                             html += `<li>Humidity: ${day.main.humidity} %</li>`
-                            html+= `</ul>`
+                            html += `</ul>`
                             html += `</div>`
 
                         }
                     });
-                            //add html array data into html of div with ID of five-day-forecast
-                            $('#five-day-forecast').html(html);
+                    //add html array data into html of div with ID of five-day-forecast
+                    $('#five-day-forecast').html(html);
 
-                            //changes city name into user input
-                            renderDivCity(data.city.name);
+                    //changes city name into user input
+                    renderDivCity(data.city.name);
 
-                            // changes current weather div to city user searched
-                            renderCurrentConditions(data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].description, data.list[0].wind.speed);
+                    // changes current weather div to city user searched
+                    renderCurrentConditions(data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].description, data.list[0].wind.speed);
 
                 })
                 .fail(console.error);
@@ -318,11 +320,82 @@ $(() => {
 
 /////////////////       END OF FUNCTIONS to find min and max temps
 
+//Pressing button go to the shire will slide to new zealand
+    //BG AND BULLETS DO NOT CHANGE CURRENTLY! WILL CONTINUE WORKING ON FUNCTIONALITY OF BUTTON
+    $('#go-to-shire').click(function goToTheShire() {
+        $('.page-wrapper').css('background-image', 'url( "../img/burning-lotr.jpg")');
+        $('.five-day-weather-items li').css('list-style-image', 'url( "../img/lotr-ring-logo.jpg")');
+
+        console.log('inside the function');
+        //geocodes the coords for Tongoriro National Park New Zealand
+        geocode('Tongoriro National Park New Zealand', MAPBOX_TOKEN).then((data) => {
+            //makes a new popup and marker for user search input on map
+            const popup = new mapboxgl.Popup()
+            marker
+                .setLngLat(data)
+                .setPopup(popup)
+                .addTo(map);
+            popup.addTo(map);
+
+            //gets map to redirect to new zealand
+            map.flyTo({
+                center: data,
+                zoom: 14,
+                speed: 1,
+                essential: true
+            })
+
+
+            //FIVE-DAY FORECAST FOR USER SEARCH INPUT
+            // ajax request (getWeatherURL(data: gets coords but need to flip the lat & lon.))
+            $.ajax(getWeatherURL(data[1], data[0]))
+                .done((data) => {
+                    //what response API is giving for tongoriro natl park
+                    console.log(data);
+
+                    let html = []
+
+                    //create new variable to store info to print onto webpage from forEach loop
+                    //loop through data list by each day
+                    data.list.forEach((day, index) => {
+                        //for each day (each block goes by 3 hours, 24 hours in a day = 8 blocks)
+                        if (index % 8 === 0) {
+                            //declare the constant minMaxTemps and set equal to function which gets info needed from api
+                            const minMaxTemps = returnMinMaxTemps(data);
+                            //call constant html and pass in the index of each 3-hour block and divide each by 8 to skip 24 hours
+                            html += '<div class="five-day-card">'
+                            html += `<ul class="five-day-weather-items">`
+                            html += `<li>Date: <div>${minMaxTemps[index / 8].date}</div></li>`;
+                            html += `<li>Minimum Temp: <div>${minMaxTemps[index / 8].min} F</div></li>`;
+                            html += `<li>Maximum Temp: <div>${minMaxTemps[index / 8].max} F</div></li>`;
+                            //going to add multiple divs with data points into empty array
+                            html += `<li>Today it is: <div>${day.weather[0].description}</div></li>`
+                            html += `<li>Feels like: <div>${day.main.feels_like} F</div></li>`
+                            html += `<li>Humidity: ${day.main.humidity} %</li>`
+                            html += `</ul>`
+                            html += `</div>`
+
+                        }
+                    });
+                    //add html array data into html of div with ID of five-day-forecast
+                    $('#five-day-forecast').html(html);
+
+                    //changes city name into natl park
+                    renderDivCity(data.city.name);
+
+                    // changes current weather div to natl park
+                    renderCurrentConditions(data.list[0].main.temp, data.list[0].main.feels_like, data.list[0].weather[0].description, data.list[0].wind.speed);
+
+                })
+                .fail(console.error);
+        });
+    });
+
 
 ///////////////////////////    EVENTS      /////////////////////////////////////////////
 
     //make this query selector use the users click target on the map find the weather for the city closest to the marker
-    document.querySelector('#reverse-geocode-button').addEventListener('click', findAndPrintAddress)
+    document.querySelector('#go-to-shire').addEventListener('click', goToTheShire)
 
 ///////////////     LOAD ASAP      //////////////////////////////
     marker.setPopup(popup);
