@@ -30,32 +30,44 @@
     // TODO: add the needed JS so that the number selected in the number input will be added to the number in the span when the button is clicked
     //AUDREY VANILLA JS SOLUTION
 
-    // // store the span into a constant.
-    // const spanShowNumber = document.getElementById('sum-output');
+    // store the button into a constant.
+    const addInputNumber = document.getElementById('add-btn');
 
-    // // store the button into a constant.
-    // const addInputNumber = document.getElementById('add-btn');
+    // create a function to add the number to the span.
+    function applyNumberToSpan(){
 
-    // // create a function to add the number to the span.
-    // function applyNumberToSpan(){
+    // store the number value within text box into a constant.
+    const inputNumber = document.getElementById('number').value;
 
-    // // store the number value within text box into a constant.
-    // const inputNumber = document.getElementById('number').value;
+    // store the span into a constant.
+    const spanShowNumber = document.getElementById('sum-output').innerText;
 
-    // // get span and print the stored number value constant into span.
-    //     spanShowNumber.innerHTML = inputNumber;
+    // get span and print the stored number value constant into span.
+       let sumOfSpanAndInput = parseInt(inputNumber) + parseInt(spanShowNumber);
 
-    // }
+       spanShowNumber.innerHTML = sumOfSpanAndInput;
 
-    // // runs function to print number in span when button is clicked
-    // addInputNumber.addEventListener('click', applyNumberToSpan);
-
-
-//    AUDREY JQUERY SOLUTION
-    $('#add-btn').on('click', addToSpan);
-    function addToSpan() {
-    $('#sum-output').html($('#number').val());
     }
+
+    // runs function to print number in span when button is clicked
+    addInputNumber.addEventListener('click', applyNumberToSpan);
+
+    // //CLASS WALK THRU VANILLA JS
+    document.querySelector('#add-btn').addEventListener('click', () => {
+        const input = document.querySelector('#number').value;
+        const output = document.querySelector('#sum-output').innerText;
+        const total = parseInt(input) + parseInt(output);
+        document.querySelector('#sum-output').innerText = total;
+    });
+
+// //    AUDREY JQUERY SOLUTION
+//     $('#add-btn').on('click', addToSpan);
+//     function addToSpan() {
+//         const input = $('#number').val();
+//         const output = $('#sum-output').text();
+//        let sumOfNumbers = parseInt(input) + parseInt(output);
+//         $('#sum-output').html(sumOfNumbers);
+//     }
 
 // CLASS WALK THRU JUSTIN STEP-BY-STEP
     //click button and it logs test
