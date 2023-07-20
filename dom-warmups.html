@@ -28,16 +28,41 @@
     "use strict";
 
     // TODO: add the needed JS so that the number selected in the number input will be added to the number in the span when the button is clicked
-    const spanShowNumber = document.getElementById('sum-output');
-    const addInputNumber = document.getElementById('add-btn');
+    //AUDREY VANILLA JS SOLUTION
 
-    console.log(spanShowNumber.innerText);
-    function applyNumberToSpan(){
-    const inputNumber = document.getElementById('number').value;
-        spanShowNumber.innerHTML = inputNumber;
+    // // store the span into a constant.
+    // const spanShowNumber = document.getElementById('sum-output');
+
+    // // store the button into a constant.
+    // const addInputNumber = document.getElementById('add-btn');
+
+    // // create a function to add the number to the span.
+    // function applyNumberToSpan(){
+
+    // // store the number value within text box into a constant.
+    // const inputNumber = document.getElementById('number').value;
+
+    // // get span and print the stored number value constant into span.
+    //     spanShowNumber.innerHTML = inputNumber;
+
+    // }
+
+    // // runs function to print number in span when button is clicked
+    // addInputNumber.addEventListener('click', applyNumberToSpan);
+
+
+//    AUDREY JQUERY SOLUTION
+    $('#add-btn').on('click', addToSpan);
+    function addToSpan() {
+    $('#sum-output').html($('#number').val());
     }
 
-    addInputNumber.addEventListener('click', applyNumberToSpan);
+// CLASS WALK THRU JUSTIN STEP-BY-STEP
+    //click button and it logs test
+    //click button and it logs the value in the input
+    //click button and it logs the sum of the current #sum-output value and the input
+    //click button an replaces #sum-output with the usm of #sum-output and input
+
 
 </script>
 
