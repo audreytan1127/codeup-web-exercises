@@ -12,18 +12,49 @@
 <button type="button" id="change-bg">Change Background Color!</button>
 </body>
 
+<h3>The sum is: <span id="sum-output">0</span></h3>
+
+<label for="number">Number</label>
+<input id="number" type="number" name="number" min="0" max="5" value="0">
+<button id="add-btn">Add</button>
+
+<!--  Include the CDN script for jQuery below -->
+<script
+        src="http://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
 <script>
-    (function () {
-        "use strict";
 
-        const bgButton = document.getElementById('change-bg');
-        const targetBody = document.getElementsByTagName("body");
-        bgButton.addEventListener('click', () => {
-            document.body.style.backgroundColor= 'green';
-        });
+    "use strict";
 
+    // TODO: add the needed JS so that the number selected in the number input will be added to the number in the span when the button is clicked
+    const spanShowNumber = document.getElementById('sum-output');
+    const addInputNumber = document.getElementById('add-btn');
 
-    })();
+    console.log(spanShowNumber.innerText);
+    function applyNumberToSpan(){
+    const inputNumber = document.getElementById('number').value;
+        spanShowNumber.innerHTML = inputNumber;
+    }
+
+    addInputNumber.addEventListener('click', applyNumberToSpan);
+
 </script>
+
+
+<!--<script>-->
+<!--    // (function () {-->
+<!--    //     "use strict";-->
+<!--    //-->
+<!--    //     const bgButton = document.getElementById('change-bg');-->
+<!--    //     const targetBody = document.getElementsByTagName("body");-->
+<!--    //     bgButton.addEventListener('click', () => {-->
+<!--    //         document.body.style.backgroundColor= 'green';-->
+<!--    //     });-->
+<!--    //-->
+<!--    //-->
+<!--    //-->
+<!--    // })();-->
+<!--</script>-->
 
 </html>
