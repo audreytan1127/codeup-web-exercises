@@ -50,6 +50,7 @@
 //     //  });
 // }
 
+// //////////AUDREY'S SOLUTION TO CODEUP EXERCISES
 const getUserInfo = (username) => {
     const url = `https://api.github.com/users/${username}/events`;
     const options = {
@@ -77,7 +78,7 @@ const getUserInfo = (username) => {
     // });
 
 
-
+// ///////////////AUDREY'S SOLUTION TO CODEUP EXERCISES
     // Create a function that accepts a GitHub username, and returns a promise that resolves returning
     // just the date of the last commit that user made.
     getUserInfo('audreytan1127').then((data)=>{
@@ -86,4 +87,6 @@ const getUserInfo = (username) => {
         //data at index 0(the latest update) was made on this date at this time
         console.log(`Latest commit ${data[0].actor.login} made: ${data[0].created_at}`);
     })
+        .catch(error => {
+            console.log(error)});
 })();
