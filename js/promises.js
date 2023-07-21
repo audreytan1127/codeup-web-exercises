@@ -69,32 +69,32 @@
 
 // ///////////ASYNC AWAIT REFACTOR CODEUP EXERCISES!
 
-const getUserInfo = async(username) => {
-    try {
-        const url = `https://api.github.com/users/${username}/events`;
-        const options = {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `token ${GITHUB_TOKEN}`,
-            }
-        }
-        const response = await fetch(url, options);
-        const userEvents = await response.json();
-        return userEvents;
-    }catch(error) {
-            console.log(error)
-    };
-}
+// const getUserInfo = async(username) => {
+//     try {
+//         const url = `https://api.github.com/users/${username}/events`;
+//         const options = {
+//             method: "GET",
+//             headers: {
+//                 'Content-Type': 'application/json',
+//                 'Authorization': `token ${GITHUB_TOKEN}`,
+//             }
+//         }
+//         const response = await fetch(url, options);
+//         const userEvents = await response.json();
+//         return userEvents;
+//     }catch(error) {
+//             console.log(error)
+//     };
+// }
 
-// ///////////ASYNC AWAIT REFACTOR IIFE CODEUP EXERCISES!
-(async()=>{
-    const events = await getUserInfo('audreytan1127');
-    console.log(events);
-    const eventCheckForPush = events.filter(events => events.type ==='PushEvent');
-    console.log(eventCheckForPush[0].created_at);
-})();
-
+// // ///////////ASYNC AWAIT REFACTOR IIFE CODEUP EXERCISES!
+// (async()=>{
+//     const events = await getUserInfo('audreytan1127');
+//     console.log(events);
+//     const eventCheckForPush = events.filter(events => events.type ==='PushEvent');
+//     console.log(eventCheckForPush[0].created_at);
+// })();
+//
 
 // (() => { // IIFE (Immediately Invoked Function Expression)
     //IN CLASS WALK THRU WITH STAR WARS API
