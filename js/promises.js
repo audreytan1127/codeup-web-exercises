@@ -51,20 +51,52 @@
 // }
 
 // //////////AUDREY'S SOLUTION TO CODEUP EXERCISES
-const getUserInfo = (username) => {
-    const url = `https://api.github.com/users/${username}/events`;
-    const options = {
-        method: "GET",
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `token ${GITHUB_TOKEN}`,
+// const getUserInfo = (username) => {
+//     const url = `https://api.github.com/users/${username}/events`;
+//     const options = {
+//         method: "GET",
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `token ${GITHUB_TOKEN}`,
+//         }
+//     }
+//     return fetch(url, options)
+//         .then(response => response.json())
+//         .catch(error => {
+//             console.log(error)
+//     });
+// }
+
+// ///////////ASYNC AWAIT REFACTOR CODEUP EXERCISES!
+
+const getUserInfo = async(username) => {
+    try {
+        const url = `https://api.github.com/users/${username}/events`;
+        const options = {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `token ${GITHUB_TOKEN}`,
+            }
         }
-    }
-    return fetch(url, options)
-        .then(response => response.json());
+        const response = await fetch(url, options);
+        const userEvents = await response.json();
+        return userEvents;
+    }catch(error) {
+            console.log(error)
+    };
 }
 
-(() => { // IIFE (Immediately Invoked Function Expression)
+// ///////////ASYNC AWAIT REFACTOR IIFE CODEUP EXERCISES!
+(async()=>{
+    const events = await getUserInfo('audreytan1127');
+    console.log(events);
+    const eventCheckForPush = events.filter(events => events.type ==='PushEvent');
+    console.log(eventCheckForPush[0].created_at);
+})();
+
+
+// (() => { // IIFE (Immediately Invoked Function Expression)
     //IN CLASS WALK THRU WITH STAR WARS API
     // //call fetch method and pass in person 1 to the ID = Luke Skywalker
     // //this function getPerson is just a PROMISE, so we need to do another .then()
@@ -81,12 +113,16 @@ const getUserInfo = (username) => {
 // ///////////////AUDREY'S SOLUTION TO CODEUP EXERCISES
     // Create a function that accepts a GitHub username, and returns a promise that resolves returning
     // just the date of the last commit that user made.
-    getUserInfo('audreytan1127').then((data)=>{
-        //data comes back as an array of objects of the pushed data
-        console.log(data);
-        //data at index 0(the latest update) was made on this date at this time
-        console.log(`Latest commit ${data[0].actor.login} made: ${data[0].created_at}`);
-    })
-        .catch(error => {
-            console.log(error)});
-})();
+//     getUserInfo('audreytan1127').then((events) => {
+//         //data comes back as an array of objects of the pushed data
+//         console.log(events);
+//         //Checks whether data point is a PushEvent...
+//         const pushDataPoints = events.filter(events => {
+//             return events.type === 'PushEvent';
+//         })
+//         console.log(pushDataPoints[0]);
+//         //data at index 0(the latest update) was made on this date at this time
+//         console.log(`Latest commit ${events[0].actor.login} made: ${events[0].created_at}`);
+//     })
+//     ;
+// })();
