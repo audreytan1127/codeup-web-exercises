@@ -13,41 +13,41 @@
 <body>
 <div class="page-wrapper">
     <div class="container grow characters">
-        <div class="row">
-            <table id="characters">
-                <thead>
-                <tr>
-                    <th>Character</th>
-                    <th>Height</th>
-                    <th>Mass</th>
-                    <th>Hair Color</th>
-                    <th>Skin Color</th>
-                    <th>Eye Color</th>
-                    <th>Birth Year</th>
-                    <th>Gender</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>
-                        <div class="d-flex gap-10 align-center">
-                            <img class="character-image" src="https://via.placeholder.com/50x50">
-                                <p class="character-name"></p>
-                            </img>
-                        </div>
-                    </td>
-                    <td>Height</td>
-                    <td>Mass</td>
-                    <td>Hair Color</td>
-                    <td>Skin Color</td>
-                    <td>Eye Color</td>
-                    <td>Birth Year</td>
-                    <td>Gender</td>
-                    <td><button>Remove</button></td>
-                </tr>
-                </tbody>
-            </table>
+<!--            Search Bar for User Input-->
+        <div class="search-row row d-flex justify-end">
+            <form id ="search" class = "search-bar">
+                <input id="search-input" type="text" placeholder="Search for a Character">
+                <button type="submit">Submit Search</button>
+            </form>
         </div>
+<!--            End of Search Bar -->
+
+<!--        Begin Table of characters row-->
+        <div class="row">
+
+<!--            Table of characters -->
+            <div class="character-table">
+                <table id="characters">
+                    <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>Height</th>
+                        <th>Mass</th>
+                        <th>Hair Color</th>
+                        <th>Skin Color</th>
+                        <th>Eye Color</th>
+                        <th>Birth Year</th>
+                        <th>Gender</th>
+                        <th>Remove Character</th>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+<!--            End of table of characters -->
+        </div>
+<!--        End of Row containing -->
     </div>
 </div>
 <script src="./js/promises.js"></script>

@@ -51,3 +51,6 @@ table#characters .character-name {
     font-weight: 600;
     text-transform: uppercase;
 }
+.search-row {
+    margin-bottom: 5px;
+}

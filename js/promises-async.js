@@ -42,26 +42,56 @@ const getPerson = async(id=1) => {
     }
 }
 
+
+
+//COMPLETED AND FUNCTIONAL: GETS THE FIRST PAGE OF CHARACTERS FROM SWAPI
+//USING ASYNC AND AWAIT
 const getPeople = async()=> {
+    try{
     const url = 'https://swapi.dev/api/people/';
     const options = {
         method: 'GET',
         header: {
-            'Content-Type': 'applicaiton/json'
+            'Content-Type': 'application/json'
         }
     }
     const response = await fetch(url, options);
     const people = await response.json();
     return people;
+} catch(error){
+    console.log(error);
+}}
+
+// USER SEARCH INPUT ASYNC
+const searchForChar = async(userSearch) => {
+    try{
+        const url= `https://swapi.dev/api/people/?search=${userSearch}`
+        const options = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        }
+        const searchResponse = await fetch(url, options);
+        const responseResult = await searchResponse.json();
+        return responseResult;
+    } catch(error){
+        console.log(error);
+    }
 }
+// END OF USER SEARCH INPUT ASYNC
+
 //if you async the WHOLE IIFE, will still work! Puts everything within IIFE into .then() for you!
 (async()=> {
+    //START OF AWAIT TO PRINT EACH PERSON IN THEIR OWN ROW
     const data = await getPeople();
     //data object
     console.log(data);
     //look thru object and found people objects
     let people = data.results;
     console.log(people);
+
+    // CREATE ROWS ON HTML TO PRINT PERSON INFO WITH MAP METHOD
     const peopleRows = people.map((person)=> {
 const row = document.createElement('tr');
 row.innerHTML =
@@ -69,7 +99,7 @@ row.innerHTML =
       <td>
             <div class="d-flex gap-10 align-center">
                    <img class="character-image" src="https://via.placeholder.com/50x50/"/>
-                       <p class="character-name"></p>
+                       <p class="character-name">${person.name}</p>
             </div>
                     </td>
                <td>${person.height}</td>
@@ -90,6 +120,30 @@ button.addEventListener('click', ()=>{
     for (let person of peopleRows){
         document.querySelector('#characters tbody').appendChild(person);
     }
+// END OF FUNCTIONS TO PRINT PERSON INFO IN HTML
+
+
+    //BEGIN USER SEARCH FUNCTIONALITY (works if replace argument with string of character name i.e. 'luke'
+    const searchForCharacter = await searchForChar(userSearch);
+    console.log(searchForCharacter.results[0]);
+
+   //  //START OF SEARCH BAR FUNCTIONALITY
+    function userSearch() {
+        //find the search box where user is inputting character name
+        let userSearchInput = document.querySelector('#search-input');
+        //listen to the search box being filled in by user
+        userSearchInput.addEventListener('input', (e) => {
+            //prevents default behavior while in the search box
+            e.preventDefault();
+            //stores user search input into a string
+            let userSearchInput = "";
+            //converts user search value in search box to a lowercase string
+            let userSearchValue = userSearchInput.value.toLowerCase();
+            //pushes the lowercase user search value to string
+            userSearchInput.push(userSearchValue);
+        });
+    }
+
 
     //Print Luke Skywalker info on HTML Table lol LONG WAY
    //  const luke = await getPerson(1);
