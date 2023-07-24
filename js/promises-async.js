@@ -97,7 +97,7 @@ const row = document.createElement('tr');
 row.innerHTML =
     `
       <td>
-            <div class="d-flex gap-10 align-center">
+            <div class="d-flex gap-10 align-center column">
                    <img class="character-image" src="https://via.placeholder.com/50x50/"/>
                        <p class="character-name">${person.name}</p>
             </div>
@@ -124,11 +124,11 @@ button.addEventListener('click', ()=>{
 
 
     //BEGIN USER SEARCH FUNCTIONALITY (works if replace argument with string of character name i.e. 'luke'
-    const searchForCharacter = await searchForChar(userSearch);
+    const searchForCharacter = await searchForChar(userSearchBox);
     console.log(searchForCharacter.results[0]);
 
    //  //START OF SEARCH BAR FUNCTIONALITY
-    function userSearch() {
+    function userSearchBox() {
         //find the search box where user is inputting character name
         let userSearchInput = document.querySelector('#search-input');
         //listen to the search box being filled in by user
