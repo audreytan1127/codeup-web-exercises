@@ -93,8 +93,8 @@ const searchForChar = async(userSearch) => {
 
     // CREATE ROWS ON HTML TO PRINT PERSON INFO WITH MAP METHOD
     const peopleRows = people.map((person)=> {
-const row = document.createElement('tr');
-row.innerHTML =
+    const row = document.createElement('tr');
+    row.innerHTML =
     `
       <td>
             <div class="d-flex gap-10 align-center column">
@@ -112,7 +112,7 @@ row.innerHTML =
                <td><button>Remove</button></td>
     `
         let button =row.querySelector('button');
-button.addEventListener('click', ()=>{
+    button.addEventListener('click', ()=>{
     row.remove();
 });
         return row;
